@@ -18,7 +18,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: ${({ theme }) => theme.font.family.roboto};
+    font-family: ${({ theme }) => theme.font.family.montserrat};
+    background-color: ${({ theme }) => theme.colors.lightGray};
   }
 
   button {
