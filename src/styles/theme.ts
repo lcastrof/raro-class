@@ -20,6 +20,7 @@ export const theme = {
       bold: 700
     },
     sizes: {
+      exxsmall: '1.1rem',
       xxsmall: '1.2rem',
       xsmall: '1.4rem',
       small: '1.6rem',
@@ -47,6 +48,7 @@ export const theme = {
     primary: '#343090',
     oceanBlue: '#4e47c2',
     violetBlue: '#7a75d1',
+    babyVioletBlue: '#a7a3e0',
     maximumBlue: '#b5b3e6',
     white: '#ffffff',
     black: '#2e384d',
@@ -54,7 +56,7 @@ export const theme = {
     lightGray: '#FBFBFE',
     yellow: '#FFD600',
     success: '#00C851',
-    warining: '#FF9800',
+    warning: '#FF9800',
     error: '#FF5252',
     gradients: {
       footerDark: 'linear-gradient(180.49deg, #4E47C2 0.42%, #343090 69.51%)',
