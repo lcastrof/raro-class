@@ -19,7 +19,7 @@ export const Button = styled.button<ButtonProps>`
       : theme.spacing.medium};
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.small};
-    font-weight: ${theme.font.weight.semiBold};
+    font-weight: ${theme.font.weight.medium};
   `}
 
   &:hover {
