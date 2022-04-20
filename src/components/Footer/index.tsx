@@ -1,8 +1,7 @@
 import LogoSocialMedia from '../../components/LogoSocialMedia';
-// import { FaFacebook } from 'react-icons/fa';
 import * as S from './styles';
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <S.Container>
       <S.WrapIcons>
@@ -62,14 +61,12 @@ const Footer = () => {
 
       <S.WrapText>
         <S.TermsPrivacyLink>
-          <a href="http://www.google.com">Termos de Uso</a>
+          <a href="#">Termos de Uso</a>
           <span>•</span>
-          <a href="http://www.google.com">Política de Privacidade</a>
+          <a href="#">Política de Privacidade</a>
         </S.TermsPrivacyLink>
         <p>© 2022 Raro Labs</p>
       </S.WrapText>
     </S.Container>
   );
 };
-
-export default Footer;

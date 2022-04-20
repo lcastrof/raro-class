@@ -1,5 +1,4 @@
 import { ThemeProvider } from 'styled-components';
-import Footer from './layouts/Footer';
 
 import { AppRoutes } from './routes';
 
@@ -11,7 +10,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <AppRoutes />
       <GlobalStyle />
-      <Footer />
     </ThemeProvider>
   );
 }
