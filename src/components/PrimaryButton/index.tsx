@@ -1,4 +1,4 @@
-import { Button } from './styles';
+import * as S from './styles';
 
 interface PrimaryButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,8 +12,8 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   ...props
 }) => {
   return (
-    <Button size={size} {...props}>
+    <S.Button size={size} {...props}>
       {text}
-    </Button>
+    </S.Button>
   );
 };
