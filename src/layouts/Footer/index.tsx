@@ -1,17 +1,11 @@
 import LogoSocialMedia from '../../components/LogoSocialMedia';
 // import { FaFacebook } from 'react-icons/fa';
-import {
-  Container,
-  StarIcon,
-  TermsPrivacyLink,
-  WrapIcons,
-  WrapText
-} from './styles';
+import * as S from './styles';
 
 const Footer = () => {
   return (
-    <Container>
-      <WrapIcons>
+    <S.Container>
+      <S.WrapIcons>
         <a
           href="https://discord.com/invite/eVf858gKwn"
           target="_blank"
@@ -25,11 +19,6 @@ const Footer = () => {
           rel="noreferrer"
         >
           <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoFacebook.svg" />
-          {/* <FaFacebook
-            style={{ margin: '0 15px 0 15px' }}
-            color="#FBFBFE"
-            size="30px"
-          /> */}
         </a>
         <a
           href="https://www.instagram.com/raroacademy/"
@@ -43,9 +32,9 @@ const Footer = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <StarIcon>
+          <S.StarIcon>
             <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoRaroAcademy.svg" />
-          </StarIcon>
+          </S.StarIcon>
         </a>
 
         <a
@@ -69,18 +58,17 @@ const Footer = () => {
         >
           <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoYouTube.svg" />
         </a>
-        {/* <BackgroundImg src="/assets/art/artFooterBackground.svg" /> */}
-      </WrapIcons>
+      </S.WrapIcons>
 
-      <WrapText>
-        <TermsPrivacyLink>
+      <S.WrapText>
+        <S.TermsPrivacyLink>
           <a href="http://www.google.com">Termos de Uso</a>
           <span>•</span>
           <a href="http://www.google.com">Política de Privacidade</a>
-        </TermsPrivacyLink>
+        </S.TermsPrivacyLink>
         <p>© 2022 Raro Labs</p>
-      </WrapText>
-    </Container>
+      </S.WrapText>
+    </S.Container>
   );
 };
 

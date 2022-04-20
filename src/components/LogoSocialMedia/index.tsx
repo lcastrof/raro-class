@@ -1,11 +1,11 @@
-import { LogoScMedia } from './styles';
+import * as S from './styles';
 
 type LogoSocialMediaProps = {
   src: string;
 };
 
 const LogoSocialMedia = ({ src }: LogoSocialMediaProps) => {
-  return <LogoScMedia src={src} />;
+  return <S.LogoScMedia src={src} />;
 };
 
 export default LogoSocialMedia;
