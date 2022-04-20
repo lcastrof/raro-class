@@ -6,7 +6,10 @@ type ButtonProps = {
 
 export const Button = styled.button<ButtonProps>`
   border: none;
-  transition: all 0.2s ease-in-out;
+  transition: transform 450ms;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+
   ${({ theme, size }) => css`
     width: ${size === 'fullWidth' ? '100%' : 'auto'};
     background: ${theme.colors.gradients.button};
@@ -23,6 +26,7 @@ export const Button = styled.button<ButtonProps>`
   `}
 
   &:hover {
-    opacity: 0.7;
+    transition: transform 300ms;
+    transform: scale(1.05);
   }
 `;
