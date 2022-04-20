@@ -55,8 +55,6 @@ export const TermsPrivacyLink = styled.section`
       color: ${theme.colors.white};
 
       &:hover {
-        /* color: ${theme.colors.violetBlue}; */
-        /* color: #a7a3e0; */
         font-weight: ${theme.font.weight.bold};
       }
     `};
