@@ -10,21 +10,30 @@ export const Footer = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoDiscord.svg" />
+          <LogoSocialMedia
+            src="/assets/icon/socialMedia/icon-logoDiscord.svg"
+            alt="Logo Discord, aplicativo de áudio e texto, convite para o Discord da Raro Academy"
+          />
         </a>
         <a
           href="https://www.facebook.com/raroacademy"
           target="_blank"
           rel="noreferrer"
         >
-          <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoFacebook.svg" />
+          <LogoSocialMedia
+            src="/assets/icon/socialMedia/icon-logoFacebook.svg"
+            alt="Logo Facebook, rede social, Facebook da Raro Academy"
+          />
         </a>
         <a
           href="https://www.instagram.com/raroacademy/"
           target="_blank"
           rel="noreferrer"
         >
-          <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoInstagram.svg" />
+          <LogoSocialMedia
+            src="/assets/icon/socialMedia/icon-logoInstagram.svg"
+            alt="Logo Instagram, rede social, Instagram da Raro Academy"
+          />
         </a>
         <a
           href="https://www.raroacademy.com.br/"
@@ -32,7 +41,10 @@ export const Footer = () => {
           rel="noreferrer"
         >
           <S.StarIcon>
-            <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoRaroAcademy.svg" />
+            <LogoSocialMedia
+              src="/assets/icon/socialMedia/icon-logoRaroAcademy.svg"
+              alt="Logo Raro Academy, curso online, Logo da sede da Raro Academy"
+            />
           </S.StarIcon>
         </a>
 
@@ -41,21 +53,30 @@ export const Footer = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoLinkedin.svg" />
+          <LogoSocialMedia
+            src="/assets/icon/socialMedia/icon-logoLinkedin.svg"
+            alt="Logo Linkedin, rede social de negócios, Linkedin da Raro Academy"
+          />
         </a>
         <a
           href="https://twitter.com/RaroAcademy"
           target="_blank"
           rel="noreferrer"
         >
-          <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoTwitter.svg" />
+          <LogoSocialMedia
+            src="/assets/icon/socialMedia/icon-logoTwitter.svg"
+            alt="Logo Twitter, rede social, Twitter da Raro Academy"
+          />
         </a>
         <a
           href="https://www.youtube.com/channel/UCAUAbOc54PreKLahvnt5jrw"
           target="_blank"
           rel="noreferrer"
         >
-          <LogoSocialMedia src="/assets/icon/socialMedia/icon-logoYouTube.svg" />
+          <LogoSocialMedia
+            src="/assets/icon/socialMedia/icon-logoYouTube.svg"
+            alt="Logo Youtube, rede social de vídeos, Youtube da Raro Academy"
+          />
         </a>
       </S.WrapIcons>
 
