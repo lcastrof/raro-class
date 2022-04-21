@@ -11,10 +11,10 @@ type ButtonProps = {
 
 export const Input = ({ placeHolder, icon, iconRight, type }: ButtonProps) => {
   return (
-    <S.Container>
-      <S.Icon>{icon}</S.Icon>
+    <S.Container className="input-container">
+      {icon}
       <S.Input placeholder={placeHolder} type={type} />
-      <S.IconRight>{iconRight}</S.IconRight>
+      {iconRight}
     </S.Container>
   );
 };
