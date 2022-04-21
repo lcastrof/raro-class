@@ -35,4 +35,8 @@ export const MainContent = styled.div`
   max-height: 100%;
   max-width: 320px;
   width: 100%;
+
+  /* .input-container + .input-container {
+    margin-bottom: 15px;
+  } */
 `;
