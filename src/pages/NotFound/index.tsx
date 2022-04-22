@@ -4,11 +4,16 @@ import { Link } from 'react-router-dom';
 const NotFound = () => {
   return (
     <S.Container>
-      <S.LogoImage
-        alt="Logo Raro Academy. Com ícone de capelo e escrito Raro Academy"
-        src="/assets/logo/logoHorizontal-raroAcademy-white.svg"
-      />
       <S.BackgroundArt src="/assets/art/artBackgroundNotFoundPage.png" />
+      <S.HeaderContainer>
+        <Link to="/">
+          <S.LogoImage
+            alt="Logo Raro Academy. Com ícone de capelo e escrito Raro Academy"
+            src="/assets/logo/logoHorizontal-raroAcademy-white.svg"
+          />
+        </Link>
+      </S.HeaderContainer>
+
       <S.WrapText>
         <h1>404</h1>
         <h3>Desculpa, mas essa página não existe</h3>

@@ -1,17 +1,22 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.main`
-  height: 100vh;
-
+export const Container = styled.body`
   ${({ theme }) => css`
     background: ${theme.colors.gradients.bgNotFoundPage};
   `}
 `;
 
-export const LogoImage = styled.img`
-  width: 15%;
-  margin: 4rem 0 0 4rem;
+export const HeaderContainer = styled.header`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: absolute;
+`;
+
+export const LogoImage = styled.img`
+  width: 14vw;
+  margin: 4rem 0 0 4rem;
 `;
 
 export const BackgroundArt = styled.img`
@@ -25,19 +30,14 @@ export const BackgroundArt = styled.img`
 `;
 
 export const WrapText = styled.section`
-  height: 100%;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  position: relative;
-
   h1 {
-    /* ${({ theme }) => css`
-      font-size: ${theme.font.sizes.giant};
-    `} */
     font-size: 8vw;
   }
 
@@ -46,7 +46,6 @@ export const WrapText = styled.section`
     font-size: 1.12vw;
 
     ${({ theme }) => css`
-      /* font-size: ${theme.font.sizes.small}; */
       font-weight: ${theme.font.weight.light};
     `}
   }
@@ -66,7 +65,6 @@ export const WrapText = styled.section`
 
     ${({ theme }) => css`
       color: ${theme.colors.white};
-      /* font-size: ${theme.font.sizes.large}; */
       font-weight: ${theme.font.weight.semiBold};
       margin-top: ${theme.spacing.huge};
     `}
