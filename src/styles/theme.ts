@@ -27,7 +27,8 @@ export const theme = {
       medium: '1.8rem',
       xmedium: '2.0rem',
       large: '2.4rem',
-      huge: '3.2rem'
+      huge: '3.2rem',
+      giant: '9.4rem'
     }
   },
   boxShadow: {
@@ -36,6 +37,7 @@ export const theme = {
     input: '0px 5px 10px rgba(173, 172, 172, 0.3)'
   },
   spacing: {
+    xxsmall: '0.2rem',
     xsmall: '0.4rem',
     small: '0.8rem',
     medium: '1.6rem',
@@ -59,9 +61,8 @@ export const theme = {
     warning: '#FF9800',
     error: '#FF5252',
     gradients: {
-      footerDark: 'linear-gradient(180.49deg, #4E47C2 0.42%, #343090 69.51%)',
-      footerLight:
-        'linear-gradient(177.22deg, #4E47C2 14.66%, rgba(78, 71, 194, 0) 126.75%)',
+      bgNotFoundPage:
+        'linear-gradient(180.48deg, #4E47C2 20.56%, #343090 99.59%);',
       button: 'linear-gradient(90deg, #4E47C2 0%, #7EBCDF 115.38%);'
     }
   }

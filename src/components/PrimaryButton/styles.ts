@@ -17,9 +17,7 @@ export const Button = styled.button<ButtonProps>`
       ? theme.border.radius.small
       : theme.border.radius.large};
     padding-inline: ${theme.spacing.xxlarge};
-    padding-block: ${size === 'small'
-      ? theme.spacing.small
-      : theme.spacing.medium};
+    padding-block: ${size === 'small' ? theme.spacing.small : '1rem'};
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.weight.medium};
