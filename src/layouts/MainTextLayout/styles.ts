@@ -21,6 +21,10 @@ export const LinksParagrafo = styled.div`
   margin-top: 1.6rem;
   font-size: 14px;
   color: hsla(242, 50%, 38%, 1);
+
+  p {
+    display: flex;
+  }
 `;
 
 export const ListInputs = styled.div`
