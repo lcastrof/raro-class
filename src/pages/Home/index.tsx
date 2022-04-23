@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { RowTitle } from '../../components/RowTitle';
 import api from '../../services/api';
+import { useAuth } from '../../store';
 import * as S from './styles';
 
 type Class = {
@@ -70,8 +71,7 @@ const mock: Class[] = [
 export const Home = () => {
   // Ordenar por tópicos depois
   const [classes, setClasses] = useState<Class[]>([]);
-
-  const isAuthenticated = false;
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const loadClasses = async () => {
@@ -84,15 +84,32 @@ export const Home = () => {
   console.log({ classes });
   return (
     <S.Container>
-      <RowTitle title="Nossos Aulões" level={isAuthenticated ? 2 : 1} />
-      <S.ClassesWrapper>
-        {mock.map((classItem) => (
-          <div key={classItem.id}>
-            <h2>{classItem.nome}</h2>
-            <p>{classItem.descricao}</p>
-          </div>
-        ))}
-      </S.ClassesWrapper>
+      {isAuthenticated ? (
+        <>
+          <RowTitle title="Favoritos" type="favorite" />
+          <RowTitle title="Curso ReactJS" />
+          <S.ClassesWrapper>
+            {mock.map((classItem) => (
+              <div key={classItem.id}>
+                <h2>{classItem.nome}</h2>
+                <p>{classItem.descricao}</p>
+              </div>
+            ))}
+          </S.ClassesWrapper>
+        </>
+      ) : (
+        <>
+          <RowTitle title="Nossos Aulões" level={1} />
+          <S.ClassesWrapper>
+            {mock.map((classItem) => (
+              <div key={classItem.id}>
+                <h2>{classItem.nome}</h2>
+                <p>{classItem.descricao}</p>
+              </div>
+            ))}
+          </S.ClassesWrapper>
+        </>
+      )}
     </S.Container>
   );
 };
