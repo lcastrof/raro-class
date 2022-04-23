@@ -9,7 +9,7 @@ export const PageMain = ({ children }: PageMainProps) => {
     <S.Page>
       <S.SideLeft>
         <img
-          src="/assets/art/peopleWorkingWithlogo.png"
+          src="/assets/art/peopleWorkingWithLogo.png"
           alt="Imagem da Raro academy"
         />
       </S.SideLeft>
