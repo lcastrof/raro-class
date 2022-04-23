@@ -1,20 +1,59 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
+import { FieldErrors } from 'react-hook-form';
 import { IconType } from 'react-icons';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import * as S from './styles';
 
-type ButtonProps = {
+type InputProps = {
   placeHolder: string;
   icon?: ReactElement<IconType>;
-  iconRight?: ReactElement<IconType>;
+  isPassword?: boolean;
   type?: string;
+  name?: string;
+  register?: (name: string) => void;
+  errors?: FieldErrors;
 };
 
-export const Input = ({ placeHolder, icon, iconRight, type }: ButtonProps) => {
+export const Input = ({
+  placeHolder,
+  name,
+  icon,
+  type,
+  errors,
+  register,
+  isPassword
+}: InputProps) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <S.Container className="input-container">
       {icon}
-      <S.Input placeholder={placeHolder} type={type} />
-      {iconRight}
+      <S.Input
+        {...register?.(name || '')}
+        name={name}
+        placeholder={placeHolder}
+        type={showPassword ? 'text' : type}
+        isInvalid={!!errors}
+      />
+
+      {isPassword && (
+        <button
+          className="icon-action"
+          type="button"
+          onClick={handleShowPassword}
+        >
+          {showPassword ? (
+            <AiOutlineEye size={18} />
+          ) : (
+            <AiOutlineEyeInvisible size={18} />
+          )}
+        </button>
+      )}
+      {errors && <S.ErrorMessage>{errors.message}</S.ErrorMessage>}
     </S.Container>
   );
 };
