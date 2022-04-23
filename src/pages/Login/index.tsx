@@ -7,15 +7,17 @@ import { MainTextLayout } from '../../layouts/MainTextLayout';
 import { FieldValues, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import api from '../../services/api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styles';
+import { useAuth } from '../../store';
 
 export const Login: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const navigate = useNavigate();
+
+  const { login, isAuthenticated } = useAuth();
 
   const validationSchema = yup.object({
     email: yup.string().required('Campo obrigatório').email('Email inválido'),
@@ -30,8 +32,8 @@ export const Login: React.FC = () => {
   const handleLogin = async (formData: FieldValues) => {
     try {
       setErrorMessage('');
-      const { data } = await api.post('/auth/login', formData);
-      localStorage.setItem('access_token', data.access_token);
+      const { email, senha } = formData;
+      await login({ email, senha });
       navigate('/');
     } catch (error) {
       console.log({ error });
@@ -42,6 +44,12 @@ export const Login: React.FC = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, [navigate, isAuthenticated]);
 
   return (
     <PageMain>
