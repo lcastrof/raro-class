@@ -6,9 +6,15 @@ api.defaults.baseURL = 'https://3.221.159.196:3320';
 
 api.interceptors.request.use(
   async (config: AxiosRequestConfig) => {
-    const authorization = localStorage.getItem('access_token');
-    if (authorization && config.headers) {
-      config.headers['Authorization'] = `bearer ${authorization}`;
+    if (!config.headers?.['Authorization']) {
+      const updatedToken = localStorage.getItem('access_token');
+      if (config.headers)
+        config.headers['Authorization'] = updatedToken
+          ? `Bearer ${updatedToken}`
+          : '';
+      api.defaults.headers.common['Authorization'] = updatedToken
+        ? `Bearer ${updatedToken}`
+        : '';
     }
 
     return config;
