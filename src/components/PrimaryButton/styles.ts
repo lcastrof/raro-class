@@ -7,6 +7,10 @@ type ButtonProps = {
 export const Button = styled.button<ButtonProps>`
   border: none;
   transition: transform 450ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme }) => theme.spacing.small};
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
 
@@ -26,5 +30,10 @@ export const Button = styled.button<ButtonProps>`
   &:hover {
     transition: transform 300ms;
     transform: scale(1.05);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 `;
