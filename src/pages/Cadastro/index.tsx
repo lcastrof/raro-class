@@ -1,5 +1,4 @@
 import { Input } from '../../components/Input';
-import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { PageMain } from '../../layouts/PageMain';
 import { PrimaryButton } from '../../components/PrimaryButton';
@@ -16,16 +15,8 @@ export const Cadastro: React.FC = () => {
       >
         <Input placeHolder="Nome" />
         <Input placeHolder="E-mail" />
-        <Input
-          placeHolder="Senha"
-          iconRight={<AiOutlineEyeInvisible size={18} />}
-          type="password"
-        />
-        <Input
-          placeHolder="Confirmar Senha"
-          iconRight={<AiOutlineEyeInvisible size={18} />}
-          type="password"
-        />
+        <Input placeHolder="Senha" isPassword type="password" />
+        <Input placeHolder="Confirmar Senha" isPassword type="password" />
         <Input placeHolder="Código da Turma" />
         <PrimaryButton size="fullWidth" text="Cadastrar" />
       </MainTextLayout>
