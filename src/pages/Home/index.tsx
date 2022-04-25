@@ -165,16 +165,8 @@ export const Home = () => {
     }
   ];
 
-  // const NoneVideoFavorite = () => {
-  //   if (videosFavorite === ['']) {
-  //     return <p>Nenhum vídeo Favorito</p>;
-  //     // return <NoneVideoFavorite />;
-  //   }
-  //   return <Slider {...SliderProps} />;
-  // };
-
-  // Rascunho, falta estilizar
-  const NoneOrLoadingVideosFavorite = () => {
+  // Rascunho do slider vídeos favoritos. Fran pegou a issue para estilizar
+  const NoneOrLoadingOrGetVideosFavorite = () => {
     if (noneVideoFavorite) {
       return <p>Nenhum vídeo</p>;
     }
@@ -207,26 +199,10 @@ export const Home = () => {
           sliderHideOrShow={sliderHideOrShow}
           setSliderHideOrShow={setSliderHideOrShow}
         />
+
         {/* Mostrar vídeos favoritos apenas quando o aluno estiver autenticado. */}
-        {/* {noneVideoFavorite ? (
-        <p>Nenhum vídeo</p>
-      ) : loadingVideoFavorite ? (
-        <p>Carregando vídeos Favoritos</p>
-      ) : (
-        sliderHideOrShow && (
-          <Slider {...SliderProps}>
-            {data.map((videoFavorite) => (
-              <div
-                key={videoFavorite.id}
-                onClick={() => console.log('onClick vídeos favoritos')}
-              >
-                <img src={videoFavorite.img_url} alt="character" />
-              </div>
-            ))}
-          </Slider>
-        )
-      )} */}
-        {NoneOrLoadingVideosFavorite()}
+        {NoneOrLoadingOrGetVideosFavorite()}
+
         <RowTitle
           title="Nossos Aulões"
           level={isAuthenticated ? 2 : 1}
