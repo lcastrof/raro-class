@@ -13,11 +13,11 @@ export const Cadastro: React.FC = () => {
         linkparagrafo1="Fazer login"
         icon={<MdKeyboardArrowLeft size={18} />}
       >
-        <Input placeHolder="Nome" />
-        <Input placeHolder="E-mail" />
-        <Input placeHolder="Senha" isPassword type="password" />
-        <Input placeHolder="Confirmar Senha" isPassword type="password" />
-        <Input placeHolder="Código da Turma" />
+        <Input placeholder="Nome" />
+        <Input placeholder="E-mail" />
+        <Input placeholder="Senha" isPassword type="password" />
+        <Input placeholder="Confirmar Senha" isPassword type="password" />
+        <Input placeholder="Código da Turma" />
         <PrimaryButton size="fullWidth" text="Cadastrar" />
       </MainTextLayout>
     </PageMain>
