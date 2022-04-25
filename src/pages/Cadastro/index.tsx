@@ -43,7 +43,13 @@ export const Cadastro: React.FC = () => {
       navigate('/login');
     } catch (error) {
       console.log({ error });
-      setErrorMessage('Erro ao realizar cadastro. Tente novamente mais tarde');
+      if (error.response.status === 400) {
+        setErrorMessage('Usuário já cadastrado');
+      } else {
+        setErrorMessage(
+          'Erro ao realizar cadastro. Tente novamente mais tarde'
+        );
+      }
     }
   };
 
