@@ -5,7 +5,7 @@ import { IconType } from 'react-icons';
 type PropsLogin = {
   children: ReactNode;
   title: string;
-  subTitle: string;
+  subTitle?: string;
   linkparagrafo1: string;
   linkparagrafo2?: string;
   icon?: ReactElement<IconType>;
@@ -32,8 +32,8 @@ export const MainTextLayout = ({
           {linkparagrafo1}
         </p>
         <p>
-          {iconRight}
           {linkparagrafo2}
+          {iconRight}
         </p>
       </S.LinksParagrafo>
       <S.Footer>
