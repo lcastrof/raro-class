@@ -9,6 +9,10 @@ type RowTitleProps = {
   display?: 'hide' | 'show';
   sliderHideOrShow?: boolean;
   setSliderHideOrShow?: (value: boolean) => void;
+  noneVideoFavorite?: boolean;
+  setNoneVideoFavorite?: (value: boolean) => void;
+  loadingVideoFavorite?: boolean;
+  setLoadingVideoFavorite?: (value: boolean) => void;
 };
 
 export const RowTitle: React.FC<RowTitleProps> = ({
@@ -17,7 +21,11 @@ export const RowTitle: React.FC<RowTitleProps> = ({
   level = 2,
   display,
   sliderHideOrShow,
-  setSliderHideOrShow
+  setSliderHideOrShow,
+  noneVideoFavorite,
+  setNoneVideoFavorite,
+  loadingVideoFavorite,
+  setLoadingVideoFavorite
 }) => {
   const iconSrc =
     type === 'class'
@@ -29,8 +37,11 @@ export const RowTitle: React.FC<RowTitleProps> = ({
 
   const clickHideorShow = () => {
     setButtonHideOrShow(!buttonHideOrShow);
-    setSliderHideOrShow!(!sliderHideOrShow);
+    setSliderHideOrShow!(!sliderHideOrShow)!;
+    setNoneVideoFavorite!(!noneVideoFavorite);
+    setLoadingVideoFavorite!(!loadingVideoFavorite);
     // setEffectRowTitle(effectRowTitle);
+    console.log(noneVideoFavorite, 'noneVideoFavorite');
   };
 
   return (

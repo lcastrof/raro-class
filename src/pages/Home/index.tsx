@@ -72,8 +72,8 @@ export const Home = () => {
   // Ordenar por tópicos depois
   const [classes, setClasses] = useState<Class[]>([]);
   const [videosFavorite, setVideosFavorites] = useState([]);
-  const [sliderHideOrShow, setSliderHideOrShow] = useState(true);
-  const [noneVideoFavorite, setNoneVideoFavorite] = useState(false);
+  const [sliderHideOrShow, setSliderHideOrShow] = useState(false);
+  const [noneVideoFavorite, setNoneVideoFavorite] = useState(true);
   const [loadingVideoFavorite, setLoadingVideoFavorite] = useState(false);
 
   const isAuthenticated = false;
@@ -168,10 +168,25 @@ export const Home = () => {
   // Rascunho do slider vídeos favoritos. Fran pegou a issue para estilizar
   const NoneOrLoadingOrGetVideosFavorite = () => {
     if (noneVideoFavorite) {
-      return <p>Nenhum vídeo</p>;
+      return (
+        <S.NoneVideoFavorite>
+          <S.imgNoFavorite
+            src={'/assets/icon/icon-starNoFavorites.svg'}
+          ></S.imgNoFavorite>
+          <S.TextNoneVideoFavorite>
+            Você ainda não tem vídeos favoritos
+          </S.TextNoneVideoFavorite>
+        </S.NoneVideoFavorite>
+      );
     }
     if (loadingVideoFavorite) {
-      return <p>Carregando vídeos Favoritos</p>;
+      return (
+        <S.NoneVideoFavorite>
+          <S.TextNoneVideoFavorite>
+            Carregando vídeos favoritos...
+          </S.TextNoneVideoFavorite>
+        </S.NoneVideoFavorite>
+      );
     }
     if (sliderHideOrShow) {
       return (
@@ -198,6 +213,10 @@ export const Home = () => {
           display="show"
           sliderHideOrShow={sliderHideOrShow}
           setSliderHideOrShow={setSliderHideOrShow}
+          noneVideoFavorite={noneVideoFavorite}
+          setNoneVideoFavorite={setNoneVideoFavorite}
+          loadingVideoFavorite={loadingVideoFavorite}
+          setLoadingVideoFavorite={setLoadingVideoFavorite}
         />
 
         {/* Mostrar vídeos favoritos apenas quando o aluno estiver autenticado. */}
