@@ -1,12 +1,15 @@
 import * as S from './styles';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
+import { IconType } from 'react-icons';
 
 type PropsLogin = {
   children: ReactNode;
   title: string;
-  subTitle: string;
+  subTitle?: string;
   linkparagrafo1: string;
   linkparagrafo2?: string;
+  icon?: ReactElement<IconType>;
+  iconRight?: ReactElement<IconType>;
 };
 
 export const MainTextLayout = ({
@@ -14,7 +17,9 @@ export const MainTextLayout = ({
   title,
   subTitle,
   linkparagrafo1,
-  linkparagrafo2
+  linkparagrafo2,
+  icon,
+  iconRight
 }: PropsLogin) => {
   return (
     <>
@@ -22,8 +27,14 @@ export const MainTextLayout = ({
       <S.SubTitle>{subTitle}</S.SubTitle>
       <S.ListInputs>{children}</S.ListInputs>
       <S.LinksParagrafo>
-        <p>{linkparagrafo1}</p>
-        <p>{linkparagrafo2}</p>
+        <p>
+          {icon}
+          {linkparagrafo1}
+        </p>
+        <p>
+          {linkparagrafo2}
+          {iconRight}
+        </p>
       </S.LinksParagrafo>
       <S.Footer>
         <S.FooterText1>Termos de Uso • Política de Privacidade</S.FooterText1>

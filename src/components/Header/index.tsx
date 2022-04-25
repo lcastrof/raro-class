@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { PrimaryButton } from '../../components/PrimaryButton';
+import { useAuth } from '../../store';
+import { UserMenu } from '../UserMenu';
 import * as S from './styles';
 
 export const Header = () => {
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const handleRedirectHome = () => {
@@ -21,12 +24,16 @@ export const Header = () => {
           alt="Logo da Raro Academy, com ícone de capelo e escrito Raro Academy"
         />
       </S.LogoButton>
-      <PrimaryButton
-        type="button"
-        text="Login"
-        size="small"
-        onClick={handleRedirectLogin}
-      />
+      {isAuthenticated ? (
+        <UserMenu />
+      ) : (
+        <PrimaryButton
+          type="button"
+          text="Login"
+          size="small"
+          onClick={handleRedirectLogin}
+        />
+      )}
     </S.HeaderContainer>
   );
 };

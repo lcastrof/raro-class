@@ -10,7 +10,7 @@ export const SubTitle = styled.p`
   display: flex;
   color: hsla(242, 50%, 38%, 1);
   justify-content: center;
-  font-size: 25px;
+  font-size: ${({ theme }) => theme.font.sizes.large};
   letter-spacing: 0.2rem;
 `;
 
@@ -18,17 +18,27 @@ export const LinksParagrafo = styled.div`
   display: flex;
   justify-content: space-between;
 
-  margin-top: 1.6rem;
-  font-size: 14px;
+  margin-top: ${({ theme }) => theme.spacing.medium};
+  font-size: ${({ theme }) => theme.font.sizes.xsmall};
   color: hsla(242, 50%, 38%, 1);
+
+  p {
+    display: flex;
+  }
 `;
 
 export const ListInputs = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 2.5rem;
+  margin-top: ${({ theme }) => theme.spacing.large};
 
-  gap: 2rem;
+  gap: ${({ theme }) => theme.spacing.large};
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: ${({ theme }) => theme.spacing.large};
+  }
 `;
 
 export const Footer = styled.footer`

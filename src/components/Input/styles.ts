@@ -1,34 +1,64 @@
 import styled, { css } from 'styled-components';
 
+type InputProps = {
+  isInvalid?: boolean;
+};
+
 export const Container = styled.div`
   position: relative;
-  /* margin-top: 2.5rem; */
 
-  svg:first-child {
+  > svg,
+  > .icon-action {
     position: absolute;
-    left: 13px;
-    bottom: 9px;
+    top: 50%;
+    transform: translateY(-50%);
     color: hsla(242, 50%, 38%, 1);
   }
 
-  svg:last-child {
-    position: absolute;
+  .icon-action {
+    background: transparent;
+    border: 0;
+    padding: 0;
     left: 289px;
-    top: 8px;
-    color: hsla(242, 50%, 38%, 1);
+  }
+
+  svg:first-of-type {
+    left: 13px;
   }
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<InputProps>`
   width: 100%;
-  height: 3.5rem;
   padding-inline: 3.5rem;
+  padding-block: 1rem;
 
-  border: 1px solid #a8a8b3;
+  border: 2px solid transparent;
 
   ${({ theme }) => css`
     font-family: ${theme.font.family.montserrat};
     border-radius: ${theme.border.radius.medium};
     box-shadow: ${theme.boxShadow.input};
+
+    &:focus-visible {
+      outline: none;
+      border-color: ${theme.colors.primary};
+    }
+  `}
+
+  ${({ isInvalid, theme }) =>
+    isInvalid &&
+    css`
+      border-color: ${theme.colors.error};
+    `}
+`;
+
+export const ErrorMessage = styled.p`
+  position: absolute;
+  bottom: -1.9rem;
+  left: 13px;
+  ${({ theme }) => css`
+    color: ${theme.colors.error};
+    font-size: ${theme.font.sizes.xsmall};
+    font-weight: ${theme.font.weight.medium};
   `}
 `;

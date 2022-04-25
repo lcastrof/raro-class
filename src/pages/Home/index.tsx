@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { RowTitle } from '../../components/RowTitle';
 import Slider from '../../components/Slider';
 import api from '../../services/api';
+import { useAuth } from '../../store';
 import * as S from './styles';
 
 type Class = {
@@ -76,7 +77,7 @@ export const Home = () => {
   const [noneVideoFavorite, setNoneVideoFavorite] = useState(true);
   const [loadingVideoFavorite, setLoadingVideoFavorite] = useState(false);
 
-  const isAuthenticated = false;
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const loadClasses = async () => {
@@ -206,36 +207,43 @@ export const Home = () => {
 
   return (
     <S.Container>
-      <>
-        <RowTitle
-          type={'favorite'}
-          title="Favoritos"
-          display="show"
-          sliderHideOrShow={sliderHideOrShow}
-          setSliderHideOrShow={setSliderHideOrShow}
-          noneVideoFavorite={noneVideoFavorite}
-          setNoneVideoFavorite={setNoneVideoFavorite}
-          loadingVideoFavorite={loadingVideoFavorite}
-          setLoadingVideoFavorite={setLoadingVideoFavorite}
-        />
-
-        {/* Mostrar vídeos favoritos apenas quando o aluno estiver autenticado. */}
-        {NoneOrLoadingOrGetVideosFavorite()}
-
-        <RowTitle
-          title="Nossos Aulões"
-          level={isAuthenticated ? 2 : 1}
-          display="hide"
-        />
-        <S.ClassesWrapper>
-          {mock.map((classItem) => (
-            <div key={classItem.id}>
-              <h2>{classItem.nome}</h2>
-              <p>{classItem.descricao}</p>
-            </div>
-          ))}
-        </S.ClassesWrapper>
-      </>
+      {isAuthenticated ? (
+        <>
+          <RowTitle
+            type={'favorite'}
+            title="Favoritos"
+            display="show"
+            sliderHideOrShow={sliderHideOrShow}
+            setSliderHideOrShow={setSliderHideOrShow}
+            noneVideoFavorite={noneVideoFavorite}
+            setNoneVideoFavorite={setNoneVideoFavorite}
+            loadingVideoFavorite={loadingVideoFavorite}
+            setLoadingVideoFavorite={setLoadingVideoFavorite}
+          />
+          {NoneOrLoadingOrGetVideosFavorite()}
+          <RowTitle title="Curso ReactJS" />
+          <S.ClassesWrapper>
+            {mock.map((classItem) => (
+              <div key={classItem.id}>
+                <h2>{classItem.nome}</h2>
+                <p>{classItem.descricao}</p>
+              </div>
+            ))}
+          </S.ClassesWrapper>
+        </>
+      ) : (
+        <>
+          <RowTitle title="Nossos Aulões" level={1} display="hide" />
+          <S.ClassesWrapper>
+            {mock.map((classItem) => (
+              <div key={classItem.id}>
+                <h2>{classItem.nome}</h2>
+                <p>{classItem.descricao}</p>
+              </div>
+            ))}
+          </S.ClassesWrapper>
+        </>
+      )}
     </S.Container>
   );
 };

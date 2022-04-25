@@ -46,7 +46,7 @@ export const RowTitle: React.FC<RowTitleProps> = ({
 
   return (
     <S.Container>
-      <S.Icon src={iconSrc} />
+      <S.Icon src={iconSrc} type={type} />
       <S.Title as={level === 1 ? 'h1' : 'h2'}>{title}</S.Title>
       <S.WrapButtonShowOrHide>
         <S.ButtonShowOrHide
