@@ -66,7 +66,7 @@ export const RecuperarSenha = () => {
             name="email"
             register={register}
             errors={errors.email}
-            placeHolder="E-mail"
+            placeholder="E-mail"
             icon={<VscMail size={18} />}
           />
         </form>

@@ -1,45 +1,61 @@
 import styled, { css } from 'styled-components';
-import { theme } from '../../styles/theme';
+
+type VideoFieldProps = {
+  backgroundImg: string;
+};
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.xsmall};
   position: relative;
-  width: 30rem;
-  height: 19.5rem;
+
+  width: 100%;
 `;
-export const VideoField = styled.div`
+export const VideoField = styled.div<VideoFieldProps>`
   position: relative;
   right: 3px;
-  width: 30rem;
+  width: 100%;
   height: 16.5rem;
+  background-image: url(${({ backgroundImg }) => backgroundImg});
+  background-size: cover;
+  background-position: center;
   ${({ theme }) => css`
     border-radius: ${theme.border.radius.medium};
     box-shadow: ${theme.boxShadow.thumb};
     transition: all 0.3s;
+    &::after {
+      content: '';
+      background: transparent;
+      position: absolute;
+      transition: all 0.3s;
+      inset: 0;
+      border-radius: ${theme.border.radius.medium};
+      background: linear-gradient(to top, #b4b3b9 0.1%, transparent);
+      opacity: 0;
+    }
     &:hover {
-      background-image: linear-gradient(to top, #b4b3b7 0.1%, transparent);
+      &::after {
+        opacity: 1;
+      }
     }
   `}
 `;
-export const Title = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: baseline;
-  margin-top: ${theme.spacing.xsmall};
+export const Title = styled.p`
   ${({ theme }) => css`
-    bottom: ${theme.spacing.xsmall};
-    font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.small};
-    font-weight: ${theme.font.weight};
+    font-weight: ${theme.font.weight.medium};
     padding-left: ${theme.spacing.medium};
   `}
 `;
-export const Star = styled.div`
+export const StarButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   width: 4rem;
   height: 4rem;
+  z-index: 2;
   ${({ theme }) => css`
     border-radius: ${theme.border.radius.round};
     bottom: ${theme.spacing.small};

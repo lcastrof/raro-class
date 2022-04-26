@@ -75,14 +75,14 @@ export const Login: React.FC = () => {
             name="email"
             register={register}
             errors={errors.email}
-            placeHolder="E-mail"
+            placeholder="E-mail"
             icon={<AiOutlineUser size={18} />}
           />
           <Input
             name="senha"
             register={register}
             errors={errors.senha}
-            placeHolder="Senha"
+            placeholder="Senha"
             isPassword
             icon={<HiOutlineKey size={18} />}
             type="password"

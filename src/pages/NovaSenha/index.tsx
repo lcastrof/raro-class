@@ -67,13 +67,13 @@ export const NovaSenha = () => {
             name="codigo"
             register={register}
             errors={errors.codigo}
-            placeHolder="Código"
+            placeholder="Código"
           />
           <Input
             name="novaSenha"
             register={register}
             errors={errors.novaSenha}
-            placeHolder="Nova senha"
+            placeholder="Nova senha"
             isPassword
             type="password"
           />
@@ -81,7 +81,7 @@ export const NovaSenha = () => {
             name="confirmarNovaSenha"
             register={register}
             errors={errors.confirmarNovaSenha}
-            placeHolder="Confirmar nova senha"
+            placeholder="Confirmar nova senha"
             isPassword
             type="password"
           />

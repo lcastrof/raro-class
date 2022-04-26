@@ -74,19 +74,19 @@ export const Cadastro: React.FC = () => {
             name="nome"
             register={register}
             errors={errors.nome}
-            placeHolder="Nome"
+            placeholder="Nome"
           />
           <Input
             name="email"
             register={register}
             errors={errors.email}
-            placeHolder="E-mail"
+            placeholder="E-mail"
           />
           <Input
             name="senha"
             register={register}
             errors={errors.senha}
-            placeHolder="Senha"
+            placeholder="Senha"
             isPassword
             type="password"
           />
@@ -94,7 +94,7 @@ export const Cadastro: React.FC = () => {
             name="confirmarSenha"
             register={register}
             errors={errors.confirmarSenha}
-            placeHolder="Confirmar Senha"
+            placeholder="Confirmar Senha"
             isPassword
             type="password"
           />
@@ -102,7 +102,7 @@ export const Cadastro: React.FC = () => {
             name="codigo"
             register={register}
             errors={errors.codigo}
-            placeHolder="Código da Turma"
+            placeholder="Código da Turma"
           />
         </form>
         <PrimaryButton

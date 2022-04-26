@@ -13,6 +13,11 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
+
   html {
     font-size: 62.5%;
   }
