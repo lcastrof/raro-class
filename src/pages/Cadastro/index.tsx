@@ -58,7 +58,10 @@ export const Cadastro: React.FC = () => {
       <MainTextLayout
         title="Cadastre-se"
         subTitle="Venha ser Raro"
-        linkparagrafo1="Fazer login"
+        linkparagrafo1={{
+          url: '/login',
+          text: 'Fazer login'
+        }}
         icon={<MdKeyboardArrowLeft size={18} />}
       >
         {errorMessage && (

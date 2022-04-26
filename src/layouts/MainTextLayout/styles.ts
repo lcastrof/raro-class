@@ -22,7 +22,7 @@ export const LinksParagrafo = styled.div`
   font-size: ${({ theme }) => theme.font.sizes.xsmall};
   color: hsla(242, 50%, 38%, 1);
 
-  p {
+  a {
     display: flex;
   }
 `;
