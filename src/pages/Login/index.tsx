@@ -56,8 +56,14 @@ export const Login: React.FC = () => {
       <MainTextLayout
         title="Conecte-se"
         subTitle="Venha ser Raro"
-        linkparagrafo1="Esqueci minha senha"
-        linkparagrafo2="Criar Conta"
+        linkparagrafo1={{
+          url: '/recuperarsenha',
+          text: 'Esqueci minha senha'
+        }}
+        linkparagrafo2={{
+          url: '/cadastro',
+          text: 'Criar Conta'
+        }}
       >
         {errorMessage && (
           <S.ErrorMessageWrapper>

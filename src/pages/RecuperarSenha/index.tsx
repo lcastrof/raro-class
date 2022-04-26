@@ -10,8 +10,14 @@ export const RecuperarSenha = () => {
     <PageMain>
       <MainTextLayout
         title="Mude sua senha"
-        linkparagrafo1="fazer login"
-        linkparagrafo2="já tenho o código"
+        linkparagrafo1={{
+          url: '/login',
+          text: 'fazer login'
+        }}
+        linkparagrafo2={{
+          url: '/novasenha',
+          text: 'já tenho o código'
+        }}
         icon={<MdKeyboardArrowLeft size={18} />}
         iconRight={<MdKeyboardArrowRight size={18} />}
       >
