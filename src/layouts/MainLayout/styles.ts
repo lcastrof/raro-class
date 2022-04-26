@@ -14,6 +14,5 @@ export const BellowWrapper = styled.div`
 `;
 
 export const MainContent = styled.main`
-  /* padding-left: ${({ theme }) => theme.spacing.huge};
-  padding-block: ${({ theme }) => theme.spacing.xxlarge}; */
+  padding-block: ${({ theme }) => theme.spacing.xxlarge};
 `;

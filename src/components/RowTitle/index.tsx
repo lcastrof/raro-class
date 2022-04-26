@@ -6,7 +6,7 @@ type RowTitleProps = {
   title: string;
   type?: 'class' | 'favorite';
   level?: 1 | 2;
-  display?: 'hide' | 'show';
+  withHideButton?: boolean;
   sliderHideOrShow?: boolean;
   setSliderHideOrShow?: (value: boolean) => void;
   noneVideoFavorite?: boolean;
@@ -19,7 +19,7 @@ export const RowTitle: React.FC<RowTitleProps> = ({
   title,
   type = 'class',
   level = 2,
-  display,
+  withHideButton,
   sliderHideOrShow,
   setSliderHideOrShow,
   noneVideoFavorite,
@@ -46,28 +46,26 @@ export const RowTitle: React.FC<RowTitleProps> = ({
 
   return (
     <S.Container>
-      <S.Icon src={iconSrc} type={type} />
-      <S.Title as={level === 1 ? 'h1' : 'h2'}>{title}</S.Title>
+      <S.TitleWrapper>
+        <S.Icon src={iconSrc} type={type} />
+        <S.Title as={level === 1 ? 'h1' : 'h2'}>{title}</S.Title>
+      </S.TitleWrapper>
       <S.WrapButtonShowOrHide>
-        <S.ButtonShowOrHide
-          style={
-            display === 'hide' ? { display: 'none' } : { display: 'content' }
-          }
-          type="button"
-          onClick={clickHideorShow}
-        >
-          {buttonHideOrShow ? (
-            <>
-              Esconder
-              <MdKeyboardArrowUp size={25} />
-            </>
-          ) : (
-            <>
-              Mostrar
-              <MdKeyboardArrowDown size={25} />
-            </>
-          )}
-        </S.ButtonShowOrHide>
+        {withHideButton && (
+          <S.ButtonShowOrHide type="button" onClick={clickHideorShow}>
+            {buttonHideOrShow ? (
+              <>
+                Esconder
+                <MdKeyboardArrowUp size={25} />
+              </>
+            ) : (
+              <>
+                Mostrar
+                <MdKeyboardArrowDown size={25} />
+              </>
+            )}
+          </S.ButtonShowOrHide>
+        )}
       </S.WrapButtonShowOrHide>
     </S.Container>
   );
