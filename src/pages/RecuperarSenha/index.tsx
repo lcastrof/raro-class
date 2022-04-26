@@ -15,7 +15,7 @@ export const RecuperarSenha = () => {
         icon={<MdKeyboardArrowLeft size={18} />}
         iconRight={<MdKeyboardArrowRight size={18} />}
       >
-        <Input placeHolder="Email" icon={<VscMail size={18} />} />
+        <Input placeholder="Email" icon={<VscMail size={18} />} />
         <PrimaryButton size="fullWidth" text="Solicitar código" />
       </MainTextLayout>
     </PageMain>

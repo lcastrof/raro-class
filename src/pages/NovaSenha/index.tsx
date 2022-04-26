@@ -12,9 +12,9 @@ export const NovaSenha = () => {
         linkparagrafo1="Não recebi o código"
         icon={<MdKeyboardArrowLeft size={18} />}
       >
-        <Input placeHolder="Código" />
-        <Input placeHolder="Nova senha" type="password" />
-        <Input placeHolder="Confirmar nova senha" type="password" />
+        <Input placeholder="Código" />
+        <Input placeholder="Nova senha" type="password" />
+        <Input placeholder="Confirmar nova senha" type="password" />
         <PrimaryButton size="fullWidth" text="Criar nova senha" />
       </MainTextLayout>
     </PageMain>
