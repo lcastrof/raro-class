@@ -6,6 +6,7 @@ import { Login } from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import { NovaSenha } from '../pages/NovaSenha';
 import { RecuperarSenha } from '../pages/RecuperarSenha';
+import { VideoClass } from '../pages/VideoClass';
 
 export const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ export const AppRoutes = () => {
         {/* Colocar dentro desse Route as rotas que tiverem o MainLayout(Header e Footer) */}
         <Route path="/" element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/videoclass" element={<VideoClass />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
