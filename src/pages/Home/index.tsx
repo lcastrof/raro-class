@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ClassesSection } from '../../components/ClassesSection';
 import { FavoritesSection } from '../../components/FavoritesSection';
+import { SkeletonVideosList } from '../../components/Skeleton/SkeletonVideosList';
 import api from '../../services/api';
 import { useAuth } from '../../store/auth';
 import { useFavorites } from '../../store/favorites';
@@ -22,6 +23,8 @@ export type Video = {
 export const Home = () => {
   const [classes, setClasses] = useState<Video[]>([]);
 
+  const [loading, setLoading] = useState(true);
+
   const { isAuthenticated } = useAuth();
   const { fetchFavorites } = useFavorites();
 
@@ -32,6 +35,7 @@ export const Home = () => {
         params: { pagina: 1, itensPorPagina: 10 }
       });
       setClasses(data);
+      setLoading(false);
     };
 
     const loadFavorites = async () => {
@@ -41,6 +45,14 @@ export const Home = () => {
     loadFavorites();
     loadClasses();
   }, [fetchFavorites, isAuthenticated]);
+
+  if (loading) {
+    return (
+      <S.Container>
+        <SkeletonVideosList />
+      </S.Container>
+    );
+  }
 
   return (
     <S.Container>
