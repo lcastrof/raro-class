@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { PrimaryButton } from '../../components/PrimaryButton';
-import { useAuth } from '../../store';
+import { useAuth } from '../../store/auth';
 import { UserMenu } from '../UserMenu';
 import * as S from './styles';
 
