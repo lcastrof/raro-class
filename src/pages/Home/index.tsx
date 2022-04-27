@@ -3,10 +3,11 @@ import { ClassesSection } from '../../components/ClassesSection';
 import { FavoritesSection } from '../../components/FavoritesSection';
 import { SkeletonVideosList } from '../../components/Skeleton/SkeletonVideosList';
 import api from '../../services/api';
-import { useAuth } from '../../store';
+import { useAuth } from '../../store/auth';
+import { useFavorites } from '../../store/favorites';
 import * as S from './styles';
 
-export type Class = {
+export type Video = {
   id: string;
   nome: string;
   url: string;
@@ -20,13 +21,14 @@ export type Class = {
 };
 
 export const Home = () => {
-  // Ordenar por tópicos depois
-  const [classes, setClasses] = useState<Class[]>([]);
+  const [classes, setClasses] = useState<Video[]>([]);
 
   const [loading, setLoading] = useState(true);
 
   const { isAuthenticated } = useAuth();
+  const { fetchFavorites } = useFavorites();
 
+  // fazer um try catch
   useEffect(() => {
     const loadClasses = async () => {
       const { data } = await api.get('/videos', {
@@ -36,8 +38,13 @@ export const Home = () => {
       setLoading(false);
     };
 
+    const loadFavorites = async () => {
+      await fetchFavorites();
+    };
+
+    loadFavorites();
     loadClasses();
-  }, [isAuthenticated]);
+  }, [fetchFavorites, isAuthenticated]);
 
   if (loading) {
     return (
@@ -52,10 +59,7 @@ export const Home = () => {
       {isAuthenticated ? (
         <>
           <FavoritesSection />
-          <ClassesSection
-            classes={classes.slice(0, 0)}
-            title="Aulas do curso"
-          />
+          <ClassesSection classes={classes} title="Aulas do curso" />
         </>
       ) : (
         <ClassesSection
