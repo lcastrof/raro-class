@@ -45,6 +45,4 @@ export const WrapTitleDescription = styled.div`
     font-weight: ${({ theme }) => theme.font.weight.regular};
     font-size: ${({ theme }) => theme.font.sizes.small};
   }
-
-  //background: lightsalmon;
 `;
