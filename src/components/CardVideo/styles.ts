@@ -4,13 +4,17 @@ type VideoFieldProps = {
   backgroundImg: string;
 };
 
-export const Container = styled.div`
+type StarButtonProps = {
+  isFavorited: boolean;
+};
+
+export const Container = styled.div<{ fixedWidth?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.xsmall};
   position: relative;
 
-  width: 100%;
+  width: ${({ fixedWidth }) => (fixedWidth ? '30rem' : '100%')};
 `;
 export const VideoField = styled.div<VideoFieldProps>`
   position: relative;
@@ -31,7 +35,7 @@ export const VideoField = styled.div<VideoFieldProps>`
       transition: all 0.3s;
       inset: 0;
       border-radius: ${theme.border.radius.medium};
-      background: linear-gradient(to top, #b4b3b9 0.1%, transparent);
+      background: linear-gradient(to top, rgb(0, 0, 0, 0.3) 0.1%, transparent);
       opacity: 0;
     }
     &:hover {
@@ -43,12 +47,15 @@ export const VideoField = styled.div<VideoFieldProps>`
 `;
 export const Title = styled.p`
   ${({ theme }) => css`
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.weight.medium};
     padding-left: ${theme.spacing.medium};
   `}
 `;
-export const StarButton = styled.div`
+export const StarButton = styled.div<StarButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,11 +63,14 @@ export const StarButton = styled.div`
   width: 4rem;
   height: 4rem;
   z-index: 2;
-  ${({ theme }) => css`
+  ${({ theme, isFavorited }) => css`
     border-radius: ${theme.border.radius.round};
     bottom: ${theme.spacing.small};
     right: ${theme.spacing.small};
     transition: all 0.3s;
+    > svg {
+      fill: ${isFavorited ? theme.colors.yellow : theme.colors.white};
+    }
     &:hover {
       background-color: ${theme.colors.gray};
     }
