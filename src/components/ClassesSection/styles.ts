@@ -5,7 +5,7 @@ export const Container = styled.section``;
 export const ClassesWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  gap: ${({ theme }) => theme.spacing.large};
+  gap: ${({ theme }) => theme.spacing.medium};
   padding-inline: 6.4rem;
 `;
 

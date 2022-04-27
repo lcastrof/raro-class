@@ -1,12 +1,12 @@
 import { RowTitle } from '../../components/RowTitle';
-import { Class } from '../../pages/Home';
+import { Video } from '../../pages/Home';
 import { CardVideo } from '../CardVideo';
 import * as S from './styles';
 
 type ClassesSectionProps = {
   title: string;
   titleLevel?: 1 | 2;
-  classes: Class[];
+  classes: Video[];
 };
 
 export const ClassesSection: React.FC<ClassesSectionProps> = ({
