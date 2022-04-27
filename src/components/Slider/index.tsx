@@ -122,7 +122,6 @@ const Slider: React.FC<SliderProps> = ({
           >
             <MdKeyboardArrowLeft size={40} />
           </button>
-          {/* &#8249; */}
         </div>
       )}
       {currentPage !== totalPages && (
@@ -133,7 +132,6 @@ const Slider: React.FC<SliderProps> = ({
           >
             <MdKeyboardArrowRight size={40} />
           </button>
-          {/* &#8250; */}
         </div>
       )}
     </StyledSliderWrapper>

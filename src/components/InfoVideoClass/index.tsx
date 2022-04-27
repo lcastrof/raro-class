@@ -39,11 +39,8 @@ export const InfoVideoClass = () => {
     loadVideo();
   }, [isAuthenticated]);
 
-  // const thumbnail = 'https://om4.com.au/wp-content/uploads/grapes.jpg';
-
   return (
     <S.Container>
-      {/* {isAuthenticated ? ( */}
       <ReactPlayer
         className={'react-player'}
         url={videoUrl}
@@ -84,7 +81,6 @@ export const InfoVideoClass = () => {
           <h2>{videoApi?.descricao}</h2>
         </S.WrapTitleDescription>
       </S.WrapInfo>
-      {/* } */}
     </S.Container>
   );
 };

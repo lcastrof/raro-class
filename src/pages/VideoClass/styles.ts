@@ -15,8 +15,6 @@ export const ContainerLeft = styled.div`
 
 export const ContainerRightBackSupport = styled.div`
   width: 100%;
-  /* background: rgb(195, 15, 15, 0.5); */
-  /* height: 100vh; */
 `;
 
 export const ContainerRight = styled.div`

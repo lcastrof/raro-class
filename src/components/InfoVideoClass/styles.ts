@@ -18,14 +18,12 @@ export const WrapInfo = styled.div`
   height: 100px;
   display: flex;
   padding: ${({ theme }) => theme.spacing.small};
-  /* background: lightblue; */
 `;
 
 export const Star = styled.div`
   width: 10%;
   margin-top: ${({ theme }) => theme.spacing.medium};
   text-align: center;
-  /* background: lightblue; */
 
   display: flex;
   justify-content: center;
