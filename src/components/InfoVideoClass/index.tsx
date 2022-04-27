@@ -32,8 +32,6 @@ export const InfoVideoClass = () => {
       setVideoUrl(response.data.url);
       setVideoThumbnail(response.data.thumbUrl);
       setVideoApi(response.data);
-
-      console.log(response.data);
     }
 
     loadVideo();
