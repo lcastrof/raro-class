@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { ClassesSection } from '../../components/ClassesSection';
 import { FavoritesSection } from '../../components/FavoritesSection';
 import api from '../../services/api';
-import { useAuth } from '../../store';
+import { useAuth } from '../../store/auth';
+import { useFavorites } from '../../store/favorites';
 import * as S from './styles';
 
-export type Class = {
+export type Video = {
   id: string;
   nome: string;
   url: string;
@@ -19,11 +20,12 @@ export type Class = {
 };
 
 export const Home = () => {
-  // Ordenar por tópicos depois
-  const [classes, setClasses] = useState<Class[]>([]);
+  const [classes, setClasses] = useState<Video[]>([]);
 
   const { isAuthenticated } = useAuth();
+  const { fetchFavorites } = useFavorites();
 
+  // fazer um try catch
   useEffect(() => {
     const loadClasses = async () => {
       const { data } = await api.get('/videos', {
@@ -32,18 +34,20 @@ export const Home = () => {
       setClasses(data);
     };
 
+    const loadFavorites = async () => {
+      await fetchFavorites();
+    };
+
+    loadFavorites();
     loadClasses();
-  }, [isAuthenticated]);
+  }, [fetchFavorites, isAuthenticated]);
 
   return (
     <S.Container>
       {isAuthenticated ? (
         <>
           <FavoritesSection />
-          <ClassesSection
-            classes={classes.slice(0, 0)}
-            title="Aulas do curso"
-          />
+          <ClassesSection classes={classes} title="Aulas do curso" />
         </>
       ) : (
         <ClassesSection
