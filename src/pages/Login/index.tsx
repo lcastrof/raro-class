@@ -10,7 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styles';
-import { useAuth } from '../../store';
+import { useAuth } from '../../store/auth';
 
 export const Login: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');

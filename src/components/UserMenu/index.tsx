@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
-import { useAuth } from '../../store';
+import { useAuth } from '../../store/auth';
 import { UserDropdown } from '../UserDropdown';
 import * as S from './styles';
 

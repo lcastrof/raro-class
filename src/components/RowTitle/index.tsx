@@ -7,12 +7,7 @@ type RowTitleProps = {
   type?: 'class' | 'favorite';
   level?: 1 | 2;
   withHideButton?: boolean;
-  sliderHideOrShow?: boolean;
-  setSliderHideOrShow?: (value: boolean) => void;
-  noneVideoFavorite?: boolean;
-  setNoneVideoFavorite?: (value: boolean) => void;
-  loadingVideoFavorite?: boolean;
-  setLoadingVideoFavorite?: (value: boolean) => void;
+  onHide?: () => void;
 };
 
 export const RowTitle: React.FC<RowTitleProps> = ({
@@ -20,12 +15,7 @@ export const RowTitle: React.FC<RowTitleProps> = ({
   type = 'class',
   level = 2,
   withHideButton,
-  sliderHideOrShow,
-  setSliderHideOrShow,
-  noneVideoFavorite,
-  setNoneVideoFavorite,
-  loadingVideoFavorite,
-  setLoadingVideoFavorite
+  onHide
 }) => {
   const iconSrc =
     type === 'class'
@@ -33,15 +23,10 @@ export const RowTitle: React.FC<RowTitleProps> = ({
       : '/assets/art/artIcon-starPreenchida.svg';
 
   const [buttonHideOrShow, setButtonHideOrShow] = useState(true);
-  // const [effectRowTitle, setEffectRowTitle] = useState(true);
 
-  const clickHideorShow = () => {
+  const handleHide = () => {
     setButtonHideOrShow(!buttonHideOrShow);
-    setSliderHideOrShow!(!sliderHideOrShow)!;
-    setNoneVideoFavorite!(!noneVideoFavorite);
-    setLoadingVideoFavorite!(!loadingVideoFavorite);
-    // setEffectRowTitle(effectRowTitle);
-    console.log(noneVideoFavorite, 'noneVideoFavorite');
+    onHide?.();
   };
 
   return (
@@ -52,7 +37,7 @@ export const RowTitle: React.FC<RowTitleProps> = ({
       </S.TitleWrapper>
       <S.WrapButtonShowOrHide>
         {withHideButton && (
-          <S.ButtonShowOrHide type="button" onClick={clickHideorShow}>
+          <S.ButtonShowOrHide type="button" onClick={handleHide}>
             {buttonHideOrShow ? (
               <>
                 Esconder

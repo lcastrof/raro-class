@@ -1,4 +1,4 @@
-import { useAuth } from '../../store';
+import { useAuth } from '../../store/auth';
 import * as S from './styles';
 
 export const UserDropdown = () => {
