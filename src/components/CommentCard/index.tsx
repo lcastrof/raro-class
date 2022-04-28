@@ -15,6 +15,8 @@ type CommentCardProps = {
   userComment: string;
   upVotes: number;
   downVotes: number;
+  video: string;
+  commentId: string;
 };
 
 export const CommentCard = ({
@@ -22,7 +24,9 @@ export const CommentCard = ({
   userName,
   userComment,
   upVotes,
-  downVotes
+  downVotes,
+  video,
+  commentId
 }: CommentCardProps) => {
   const [iconUp, setIconUp] = useState(false);
   const [iconDown, setIconDown] = useState(false);
@@ -41,13 +45,10 @@ export const CommentCard = ({
   }
   {
     !iconDown && iconUp
-      ? api.put(
-          '/videos/25526467-e9d7-40cb-bc60-76bb85419915/comentarios/658c8aaf-ba11-4fdb-8fe9-fdf299db34d3/votes',
-          { vote: 'up' }
-        )
-      : api.delete(
-          '/videos/25526467-e9d7-40cb-bc60-76bb85419915/comentarios/658c8aaf-ba11-4fdb-8fe9-fdf299db34d3/votes'
-        );
+      ? api.put(`/videos/${video}/comentarios/${commentId}/votes`, {
+          vote: 'up'
+        })
+      : api.delete(`/videos/${video}/comentarios/${commentId}/votes`);
   }
 
   async function handleDislike() {
@@ -63,13 +64,10 @@ export const CommentCard = ({
   }
   {
     !iconUp && iconDown
-      ? api.put(
-          '/videos/25526467-e9d7-40cb-bc60-76bb85419915/comentarios/658c8aaf-ba11-4fdb-8fe9-fdf299db34d3/votes',
-          { vote: 'down' }
-        )
-      : api.delete(
-          '/videos/25526467-e9d7-40cb-bc60-76bb85419915/comentarios/658c8aaf-ba11-4fdb-8fe9-fdf299db34d3/votes'
-        );
+      ? api.put(`/videos/${video}/comentarios/${commentId}/votes`, {
+          vote: 'down'
+        })
+      : api.delete(`/videos/${video}/comentarios/${commentId}/votes`);
   }
 
   return (
