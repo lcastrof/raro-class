@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { CommentCard } from '../../components/CommentCard';
 import { RowTitle } from '../../components/RowTitle';
 import Slider from '../../components/Slider';
 import api from '../../services/api';
@@ -231,17 +230,6 @@ export const Home = () => {
               </div>
             ))}
           </S.ClassesWrapper>
-          <CommentCard
-            avatar={
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_l-yO-axUTUnTOxJqTbbO-vJ6RZ5XC6X44A&usqp=CAU'
-            }
-            userName={'Denis Gomes'}
-            userComment={'A Aula foi top'}
-            upVotes={3}
-            downVotes={4}
-            video={'25526467-e9d7-40cb-bc60-76bb85419915'}
-            commentId={'658c8aaf-ba11-4fdb-8fe9-fdf299db34d3'}
-          />
         </>
       ) : (
         <>
