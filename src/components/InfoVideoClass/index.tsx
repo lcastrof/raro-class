@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
-import { useAuth } from '../../store';
+import { useAuth } from '../../store/auth';
 import * as S from './styles';
 import ReactPlayer from 'react-player';
 
