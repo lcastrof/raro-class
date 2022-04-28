@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div``;
 
@@ -11,7 +11,7 @@ export const Header = styled.div`
 export const Logo = styled.div`
   width: 6.5rem;
   height: 6.5rem;
-  margin-left: 6.5rem;
+  margin-left: ${({ theme }) => theme.spacing.huge};
   background-image: linear-gradient(
     -90deg,
     #e7edf1 0%,
@@ -33,7 +33,7 @@ export const Logo = styled.div`
 export const TitleList = styled.div`
   width: 16rem;
   height: 5rem;
-  margin: 1rem;
+  margin: ${({ theme }) => theme.spacing.small};
   background-image: linear-gradient(
     -90deg,
     #e7edf1 0%,
@@ -57,20 +57,22 @@ export const Main = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  padding-left: 1rem;
+  padding-left: ${({ theme }) => theme.spacing.small};
 `;
 export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: ${({ theme }) => theme.spacing.medium};
 `;
 export const CardVideo = styled.div`
   width: 40rem;
   height: 16.5rem;
-  margin: 1rem;
-  margin-bottom: 0;
-  border-radius: 2.5rem;
+  ${({ theme }) => css`
+    margin: ${theme.spacing.medium};
+    margin-bottom: 0;
+    border-radius: ${theme.border.radius.medium};
+  `};
   background-image: linear-gradient(
     -90deg,
     #e7edf1 0%,
@@ -92,8 +94,11 @@ export const CardVideo = styled.div`
 export const TitleVideo = styled.div`
   width: 38rem;
   height: 2.5rem;
-  margin-top: 0.5rem;
-  border-radius: 2.5rem;
+  ${({ theme }) => css`
+    margin-top: ${theme.spacing.xsmall};
+    margin-bottom: 0;
+    border-radius: ${theme.border.radius.medium};
+  `};
   background-image: linear-gradient(
     -90deg,
     #e7edf1 0%,

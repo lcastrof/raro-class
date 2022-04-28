@@ -3,6 +3,7 @@ import api from '../../services/api';
 import { useAuth } from '../../store/auth';
 import * as S from './styles';
 import ReactPlayer from 'react-player';
+import { SkeletonPlayerVideo } from '../Skeleton/SkeletonPlayerVideo';
 
 export type InfoVideoClass = {
   id: string;
@@ -20,6 +21,8 @@ export type InfoVideoClass = {
 export const InfoVideoClass = () => {
   const { isAuthenticated } = useAuth();
 
+  const [loading, setLoading] = useState(true);
+
   const [videoUrl, setVideoUrl] = useState();
   const [videoThumbnail, setVideoThumbnail] = useState();
   const [videoApi, setVideoApi] = useState<InfoVideoClass>();
@@ -32,10 +35,19 @@ export const InfoVideoClass = () => {
       setVideoUrl(response.data.url);
       setVideoThumbnail(response.data.thumbUrl);
       setVideoApi(response.data);
+      setLoading(false);
     }
 
     loadVideo();
   }, [isAuthenticated]);
+
+  if (loading) {
+    return (
+      <S.Container>
+        <SkeletonPlayerVideo />
+      </S.Container>
+    );
+  }
 
   return (
     <S.Container>
