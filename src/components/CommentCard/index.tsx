@@ -30,7 +30,6 @@ export const CommentCard = ({
 }: CommentCardProps) => {
   const [iconUp, setIconUp] = useState(false);
   const [iconDown, setIconDown] = useState(false);
-  /* const iconUpUpdated = !iconUp; */
 
   function handleLike() {
     if (iconDown) {
