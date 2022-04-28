@@ -27,12 +27,6 @@ export const SkeletonPlayerVideo = () => {
           </S.CommentCard>
         </S.CommentContent>
       </S.LeftSide>
-      <S.RightSide>
-        <S.NextVideoCard />
-        <S.NextVideoCard />
-        <S.NextVideoCard />
-        <S.NextVideoCard />
-      </S.RightSide>
     </S.Container>
   );
 };
