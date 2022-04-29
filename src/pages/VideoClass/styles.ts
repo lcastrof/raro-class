@@ -23,10 +23,8 @@ export const ContainerLeft = styled.div`
 
 export const ContainerRight = styled.div`
   width: 25vw;
-  /* background: lightblue; */
-  height: 100vh;
-  /* z-index: -9; */
   margin-top: -4rem;
+  background: #fbfbfe;
   box-shadow: -4px 0px 20px rgb(0 0 0 / 10%);
 `;
 

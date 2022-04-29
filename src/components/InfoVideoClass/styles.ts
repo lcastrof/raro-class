@@ -15,13 +15,15 @@ export const Container = styled.div`
 `;
 
 export const WrapInfo = styled.div`
-  height: 100px;
   display: flex;
   padding: ${({ theme }) => theme.spacing.small};
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 `;
 
 export const Star = styled.div`
-  padding: ${({ theme }) => theme.spacing.xsmall};
+  padding-left: 2.5rem;
+  padding-right: 1.5rem;
 `;
 
 // type StarButtonProps = {
@@ -34,7 +36,7 @@ export const StarButton = styled.div`
   justify-content: center;
   align-items: center;
   width: 4rem;
-  height: 56%;
+  /* height: 56%; */
   margin-left: -${({ theme }) => theme.spacing.small};
   margin-top: ${({ theme }) => theme.spacing.xxsmall};
 
@@ -54,9 +56,10 @@ export const StarButton = styled.div`
 `;
 
 export const WrapTitleDescription = styled.div`
-  width: 100%;
+  width: 83%;
   font-size: 1rem;
-  margin-top: ${({ theme }) => theme.spacing.medium};
+  /* margin-top: ${({ theme }) => theme.spacing.medium}; */
+  overflow-wrap: break-word;
 
   h1 {
     color: ${({ theme }) => theme.colors.primary};
