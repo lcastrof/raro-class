@@ -8,7 +8,6 @@ export const VideoClass = () => {
       <S.ContainerLeft>
         <InfoVideoClass />
         <DivideLine />
-        <p>Comentários do Alunos</p>
       </S.ContainerLeft>
       {/* O style _S.ContainerRightBackSupport_ é uma base para o stye _S.ContainerRight_ (logo abaixo no código).
       Por favor, não excluir o _S.ContainerRight_ porque ele ajuda no tamanho certinho que as divs entre

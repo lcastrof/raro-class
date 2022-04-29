@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
-import { useAuth } from '../../store/auth';
 import * as S from './styles';
 import ReactPlayer from 'react-player';
 import { SkeletonPlayerVideo } from '../Skeleton/SkeletonPlayerVideo';
+import { useParams } from 'react-router-dom';
 
 export type InfoVideoClass = {
   id: string;
@@ -11,17 +11,32 @@ export type InfoVideoClass = {
   url: string;
   thumbUrl: string;
   descricao: string;
+  createdAt: string;
   duracao: string;
   dataPublicacao?: string | null;
   topico: string;
   tags: string[];
-  createdAt: string;
+  texto: string[];
+  aluno: {
+    id: string;
+    admin: boolean;
+    nome: string;
+    email: string;
+    senha: string;
+    foto: string;
+  };
+  upVotes: number;
+  downVotes: number;
 };
 
 export const InfoVideoClass = () => {
-  const { isAuthenticated } = useAuth();
+  const [recommended, setRecommended] = useState<InfoVideoClass[]>([]);
+
+  const [comments, setComments] = useState<InfoVideoClass[]>([]);
 
   const [loading, setLoading] = useState(true);
+
+  const { id } = useParams();
 
   const [videoUrl, setVideoUrl] = useState();
   const [videoThumbnail, setVideoThumbnail] = useState();
@@ -29,9 +44,7 @@ export const InfoVideoClass = () => {
 
   useEffect(() => {
     async function loadVideo() {
-      const response = await api.get(
-        `/videos/25526467-e9d7-40cb-bc60-76bb85419915`
-      );
+      const response = await api.get(`/videos/${id}`);
       setVideoUrl(response.data.url);
       setVideoThumbnail(response.data.thumbUrl);
       setVideoApi(response.data);
@@ -39,7 +52,26 @@ export const InfoVideoClass = () => {
     }
 
     loadVideo();
-  }, [isAuthenticated]);
+  }, [id]);
+
+  useEffect(() => {
+    async function getCommentsAndRecommended() {
+      const responseComments = await api.get(`/videos/${id}/comentarios`);
+      setComments(responseComments.data);
+      const responseRecommended = await api.get(`/videos/${id}/recomendacoes`);
+      setRecommended(responseRecommended.data);
+    }
+
+    getCommentsAndRecommended();
+  }, [id]);
+
+  {
+    comments.map((items) => console.log('=========', items.texto));
+  }
+
+  {
+    recommended.map((items) => console.log('=========', items.nome));
+  }
 
   if (loading) {
     return (
