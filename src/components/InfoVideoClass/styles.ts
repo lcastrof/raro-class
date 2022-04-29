@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   .react-player > div {
@@ -21,12 +21,36 @@ export const WrapInfo = styled.div`
 `;
 
 export const Star = styled.div`
-  width: 10%;
-  margin-top: ${({ theme }) => theme.spacing.medium};
-  text-align: center;
+  padding: ${({ theme }) => theme.spacing.xsmall};
+`;
 
+// type StarButtonProps = {
+//   isFavorited: boolean;
+// };
+
+// export const StarButton = styled.div<StarButtonProps>`
+export const StarButton = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 56%;
+  margin-left: -${({ theme }) => theme.spacing.small};
+  margin-top: ${({ theme }) => theme.spacing.xxsmall};
+
+  ${({ theme }) => css`
+    border-radius: ${theme.border.radius.round};
+    bottom: ${theme.spacing.small};
+    right: ${theme.spacing.small};
+    transition: all 0.3s;
+    > svg {
+      fill: ${theme.colors.primary};
+    }
+    &:hover {
+      background-color: ${theme.colors.grayFade};
+    }
+  `}
+  cursor: pointer;
 `;
 
 export const WrapTitleDescription = styled.div`

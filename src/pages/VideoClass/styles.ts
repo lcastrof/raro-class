@@ -2,30 +2,39 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: inline-flex;
-  width: 100%;
+  /* width: 100%; */
   margin-top: -4rem;
+`;
+
+export const Container2 = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* padding-block: 0 !important; */
+  margin-top: 10.2rem;
 `;
 
 export const ContainerLeft = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 75vw;
-`;
-
-export const ContainerRightBackSupport = styled.div`
-  width: 100%;
 `;
 
 export const ContainerRight = styled.div`
   width: 25vw;
+  /* background: lightblue; */
   height: 100vh;
-  position: absolute;
-  right: 0;
+  /* z-index: -9; */
+  margin-top: -4rem;
+  box-shadow: -4px 0px 20px rgb(0 0 0 / 10%);
+`;
 
-  color: white;
-  font-size: 30px;
-  background: rgb(50, 60, 90, 1);
-  word-break: break-all;
-  padding: 40px;
+export const TitleRecommended = styled.div`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: ${({ theme }) => theme.font.sizes.small};
+  font-weight: ${({ theme }) => theme.font.weight.semiBold};
+  text-align: center;
+  padding: ${({ theme }) => theme.spacing.medium};
+  background-color: #dadada;
 `;
