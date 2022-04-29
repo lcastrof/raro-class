@@ -4,6 +4,7 @@ import { useAuth } from '../../store/auth';
 import * as S from './styles';
 import ReactPlayer from 'react-player';
 import { SkeletonPlayerVideo } from '../Skeleton/SkeletonPlayerVideo';
+import { BsStar } from 'react-icons/bs';
 
 export type InfoVideoClass = {
   id: string;
@@ -55,7 +56,8 @@ export const InfoVideoClass = () => {
         className={'react-player'}
         url={videoUrl}
         light={videoThumbnail}
-        width="74vw"
+        // width="74vw"
+        width="100%"
         height="auto"
         controls={true}
         playing={true}
@@ -78,13 +80,16 @@ export const InfoVideoClass = () => {
       />
       <S.WrapInfo>
         <S.Star>
-          <p>
-            ★
-            <br />
-            Componente
-            <br />
-            estrela
-          </p>
+          {/* <S.StarButton onClick={handleFavorite} isFavorited={isFavorited}> */}
+          <S.StarButton>
+            {/* {isLoading ? ( */}
+            {/* <Spinner size={25} /> */}
+            {/* ) : isFavorited ? ( */}
+            {/* <BsStarFill size={25} /> */}
+            {/* ) : ( */}
+            <BsStar size={25} />
+            {/* )} */}
+          </S.StarButton>
         </S.Star>
         <S.WrapTitleDescription>
           <h1>{videoApi?.nome}</h1>

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   .react-player > div {
@@ -15,24 +15,51 @@ export const Container = styled.div`
 `;
 
 export const WrapInfo = styled.div`
-  height: 100px;
   display: flex;
   padding: ${({ theme }) => theme.spacing.small};
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 `;
 
 export const Star = styled.div`
-  width: 10%;
-  margin-top: ${({ theme }) => theme.spacing.medium};
-  text-align: center;
+  padding-left: 2.5rem;
+  padding-right: 1.5rem;
+`;
 
+// type StarButtonProps = {
+//   isFavorited: boolean;
+// };
+
+// export const StarButton = styled.div<StarButtonProps>`
+export const StarButton = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 4rem;
+  /* height: 56%; */
+  margin-left: -${({ theme }) => theme.spacing.small};
+  margin-top: ${({ theme }) => theme.spacing.xxsmall};
+
+  ${({ theme }) => css`
+    border-radius: ${theme.border.radius.round};
+    bottom: ${theme.spacing.small};
+    right: ${theme.spacing.small};
+    transition: all 0.3s;
+    > svg {
+      fill: ${theme.colors.primary};
+    }
+    &:hover {
+      background-color: ${theme.colors.grayFade};
+    }
+  `}
+  cursor: pointer;
 `;
 
 export const WrapTitleDescription = styled.div`
-  width: 100%;
+  width: 83%;
   font-size: 1rem;
-  margin-top: ${({ theme }) => theme.spacing.medium};
+  /* margin-top: ${({ theme }) => theme.spacing.medium}; */
+  overflow-wrap: break-word;
 
   h1 {
     color: ${({ theme }) => theme.colors.primary};
