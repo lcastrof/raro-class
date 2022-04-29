@@ -6,26 +6,16 @@ type RowTitleProps = {
   title: string;
   type?: 'class' | 'favorite';
   level?: 1 | 2;
-  display?: 'hide' | 'show';
-  sliderHideOrShow?: boolean;
-  setSliderHideOrShow?: (value: boolean) => void;
-  noneVideoFavorite?: boolean;
-  setNoneVideoFavorite?: (value: boolean) => void;
-  loadingVideoFavorite?: boolean;
-  setLoadingVideoFavorite?: (value: boolean) => void;
+  withHideButton?: boolean;
+  onHide?: () => void;
 };
 
 export const RowTitle: React.FC<RowTitleProps> = ({
   title,
   type = 'class',
   level = 2,
-  display,
-  sliderHideOrShow,
-  setSliderHideOrShow,
-  noneVideoFavorite,
-  setNoneVideoFavorite,
-  loadingVideoFavorite,
-  setLoadingVideoFavorite
+  withHideButton,
+  onHide
 }) => {
   const iconSrc =
     type === 'class'
@@ -33,41 +23,34 @@ export const RowTitle: React.FC<RowTitleProps> = ({
       : '/assets/art/artIcon-starPreenchida.svg';
 
   const [buttonHideOrShow, setButtonHideOrShow] = useState(true);
-  // const [effectRowTitle, setEffectRowTitle] = useState(true);
 
-  const clickHideorShow = () => {
+  const handleHide = () => {
     setButtonHideOrShow(!buttonHideOrShow);
-    setSliderHideOrShow!(!sliderHideOrShow)!;
-    setNoneVideoFavorite!(!noneVideoFavorite);
-    setLoadingVideoFavorite!(!loadingVideoFavorite);
-    // setEffectRowTitle(effectRowTitle);
-    console.log(noneVideoFavorite, 'noneVideoFavorite');
+    onHide?.();
   };
 
   return (
     <S.Container>
-      <S.Icon src={iconSrc} type={type} />
-      <S.Title as={level === 1 ? 'h1' : 'h2'}>{title}</S.Title>
+      <S.TitleWrapper>
+        <S.Icon src={iconSrc} type={type} />
+        <S.Title as={level === 1 ? 'h1' : 'h2'}>{title}</S.Title>
+      </S.TitleWrapper>
       <S.WrapButtonShowOrHide>
-        <S.ButtonShowOrHide
-          style={
-            display === 'hide' ? { display: 'none' } : { display: 'content' }
-          }
-          type="button"
-          onClick={clickHideorShow}
-        >
-          {buttonHideOrShow ? (
-            <>
-              Esconder
-              <MdKeyboardArrowUp size={25} />
-            </>
-          ) : (
-            <>
-              Mostrar
-              <MdKeyboardArrowDown size={25} />
-            </>
-          )}
-        </S.ButtonShowOrHide>
+        {withHideButton && (
+          <S.ButtonShowOrHide type="button" onClick={handleHide}>
+            {buttonHideOrShow ? (
+              <>
+                Esconder
+                <MdKeyboardArrowUp size={25} />
+              </>
+            ) : (
+              <>
+                Mostrar
+                <MdKeyboardArrowDown size={25} />
+              </>
+            )}
+          </S.ButtonShowOrHide>
+        )}
       </S.WrapButtonShowOrHide>
     </S.Container>
   );

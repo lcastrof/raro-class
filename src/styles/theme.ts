@@ -38,7 +38,7 @@ export const theme = {
   },
   spacing: {
     xxsmall: '0.2rem',
-    xsmall: '0.4rem',
+    xsmall: '0.5rem',
     small: '0.8rem',
     medium: '1.6rem',
     large: '2.4rem',
@@ -55,7 +55,9 @@ export const theme = {
     white: '#ffffff',
     black: '#2e384d',
     gray: '#706F7C',
+    secondaryGray: '#ababab',
     lightGray: '#FBFBFE',
+    grayFade: '#b4b3b9',
     yellow: '#FFD600',
     success: '#00C851',
     warning: '#FF9800',

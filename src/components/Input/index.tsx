@@ -4,24 +4,23 @@ import { IconType } from 'react-icons';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import * as S from './styles';
 
-type InputProps = {
-  placeHolder: string;
+interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   icon?: ReactElement<IconType>;
   isPassword?: boolean;
   type?: string;
   name?: string;
   register?: (name: string) => void;
   errors?: FieldErrors;
-};
+}
 
 export const Input = ({
-  placeHolder,
   name,
   icon,
   type,
   errors,
   register,
-  isPassword
+  isPassword,
+  ...inputAttributes
 }: InputProps) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -35,9 +34,9 @@ export const Input = ({
       <S.Input
         {...register?.(name || '')}
         name={name}
-        placeholder={placeHolder}
         type={showPassword ? 'text' : type}
         isInvalid={!!errors}
+        {...inputAttributes}
       />
 
       {isPassword && (

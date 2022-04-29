@@ -13,6 +13,17 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
+
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
   html {
     font-size: 62.5%;
   }
