@@ -4,6 +4,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { PageMain } from '../../layouts/PageMain';
 import { PrimaryButton } from '../../components/PrimaryButton';
 import { MainTextLayout } from '../../layouts/MainTextLayout';
+import { LinkHome } from '../../components/LinkHome';
 
 export const RecuperarSenha = () => {
   return (
@@ -20,6 +21,7 @@ export const RecuperarSenha = () => {
         }}
         icon={<MdKeyboardArrowLeft size={18} />}
         iconRight={<MdKeyboardArrowRight size={18} />}
+        linkHome={<LinkHome />}
       >
         <Input placeHolder="Email" icon={<VscMail size={18} />} />
         <PrimaryButton size="fullWidth" text="Solicitar código" />
