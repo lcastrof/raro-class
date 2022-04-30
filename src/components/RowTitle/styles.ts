@@ -9,7 +9,7 @@ export const Container = styled.div`
   flex: 1;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: ${({ theme }) => theme.spacing.medium};
+  margin-bottom: ${({ theme }) => theme.spacing.large};
   padding-inline: ${({ theme }) => theme.spacing.huge};
 `;
 
@@ -46,3 +46,7 @@ export const ButtonShowOrHide = styled.button`
     font-weight: ${theme.font.weight.semiBold};
   `}
 `;
+
+export const Filter = styled.select``;
+
+export const FilterOption = styled.option``;

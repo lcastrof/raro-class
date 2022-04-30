@@ -3,13 +3,24 @@ import { RowTitle } from '../../components/RowTitle';
 import { useFavorites } from '../../store/favorites';
 import { CardVideo } from '../CardVideo';
 import Carousel from '../Carousel';
+import { SkeletonVideosList } from '../Skeleton/SkeletonVideosList';
 import * as S from './styles';
 
-export const FavoritesSection = () => {
+type FavoritesSectionProps = {
+  isLoading?: boolean;
+};
+
+export const FavoritesSection: React.FC<FavoritesSectionProps> = ({
+  isLoading
+}) => {
   const [hideFavorites, setHideFavorites] = useState(false);
   const cardRef = useRef(null);
 
   const { favorites } = useFavorites();
+
+  if (isLoading) {
+    return <SkeletonVideosList />;
+  }
 
   return (
     <S.Container>

@@ -3,7 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.large};
+  gap: ${({ theme }) => theme.spacing.xxlarge};
+  padding-bottom: ${({ theme }) => theme.spacing.huge};
+
+  section + div {
+    margin-bottom: 0;
+  }
 `;
 
 export const ClassesWrapper = styled.div`
