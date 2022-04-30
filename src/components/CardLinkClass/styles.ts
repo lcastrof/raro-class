@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.section`
+type StarButtonProps = {
+  isFavorited: boolean;
+};
+
+export const Container = styled.section<{ fixedWidth?: boolean }>`
   width: 100%;
   height: auto;
   color: ${({ theme }) => theme.colors.primary};
@@ -29,7 +33,7 @@ export const Star = styled.div`
 // };
 
 // export const StarButton = styled.div<StarButtonProps>`
-export const StarButton = styled.div`
+export const StarButton = styled.div<StarButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
