@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
 `;
 
 export const UserCard = styled.div`
@@ -11,7 +11,7 @@ export const UserCard = styled.div`
 `;
 
 export const Avatar = styled.img`
-  margin-left: 10px;
+  margin-left: 1rem;
 
   ${({ theme }) => css`
     border: solid 3px transparent;
@@ -60,8 +60,8 @@ export const Button = styled.button`
     padding-inline: 2.8rem;
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.xxsmall};
-    height: 30px;
-    margin-top: 15px;
+    height: 3rem;
+    margin-top: 1.5rem;
   `}
 `;
 
