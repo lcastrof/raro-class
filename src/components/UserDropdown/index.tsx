@@ -1,8 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
 import * as S from './styles';
 
 export const UserDropdown = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <S.Container>
@@ -12,7 +19,7 @@ export const UserDropdown = () => {
         <S.UserEmail>{user?.email}</S.UserEmail>
       </S.UserInfo>
       <S.ActionsMenu>
-        <S.ActionItem onClick={logout}>Logout</S.ActionItem>
+        <S.ActionItem onClick={handleLogout}>Logout</S.ActionItem>
       </S.ActionsMenu>
     </S.Container>
   );
