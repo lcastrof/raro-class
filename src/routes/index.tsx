@@ -15,13 +15,14 @@ export const AppRoutes = () => {
         {/* Colocar dentro desse Route as rotas que tiverem o MainLayout(Header e Footer) */}
         <Route path="/" element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/videoclass" element={<VideoClass />} />
+          <Route path="/video/:id" element={<VideoClass />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/novasenha" element={<NovaSenha />} />
         <Route path="/recuperarsenha" element={<RecuperarSenha />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
