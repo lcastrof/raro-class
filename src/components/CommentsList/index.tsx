@@ -1,12 +1,12 @@
 import { CommentCard } from '../CommentCard';
-import { InfoVideoClass } from '../InfoVideoClass';
+import { InfoVideoClass } from '../../pages/VideoClass';
 import * as S from './styles';
 
 type CommentListProps = {
   comments: InfoVideoClass[];
 };
 
-export const CommentList: React.FC<CommentListProps> = ({ comments }) => {
+export const CommentList = ({ comments }: CommentListProps) => {
   if (comments.length === 0) {
     return (
       <S.ContainerCommentList>
