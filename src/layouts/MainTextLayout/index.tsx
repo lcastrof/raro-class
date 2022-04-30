@@ -17,6 +17,7 @@ type PropsLogin = {
   };
   icon?: ReactElement<IconType>;
   iconRight?: ReactElement<IconType>;
+  linkHome?: ReactNode;
 };
 
 export const MainTextLayout = ({
@@ -26,7 +27,8 @@ export const MainTextLayout = ({
   linkparagrafo1,
   linkparagrafo2,
   icon,
-  iconRight
+  iconRight,
+  linkHome
 }: PropsLogin) => {
   return (
     <>
@@ -46,6 +48,7 @@ export const MainTextLayout = ({
         ) : null}
       </S.LinksParagrafo>
       <S.Footer>
+        {linkHome}
         <S.FooterText1>Termos de Uso • Política de Privacidade</S.FooterText1>
         <S.FooterText2>© 2022 Raro Labs</S.FooterText2>
       </S.Footer>

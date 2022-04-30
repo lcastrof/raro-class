@@ -53,6 +53,7 @@ export const Comment = styled.p`
 
 export const ReactComment = styled.div`
   display: flex;
+  font-size: 12px;
 
   ${({ theme }) => css`
     p {

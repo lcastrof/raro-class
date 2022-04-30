@@ -3,6 +3,7 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { PageMain } from '../../layouts/PageMain';
 import { PrimaryButton } from '../../components/PrimaryButton';
 import { MainTextLayout } from '../../layouts/MainTextLayout';
+import { LinkHome } from '../../components/LinkHome';
 import { FieldValues, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -56,6 +57,7 @@ export const NovaSenha = () => {
           text: 'Não recebi o código'
         }}
         icon={<MdKeyboardArrowLeft size={18} />}
+        linkHome={<LinkHome />}
       >
         {errorMessage ? (
           <S.ErrorMessageWrapper>
