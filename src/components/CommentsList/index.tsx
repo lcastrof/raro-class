@@ -1,9 +1,9 @@
 import { CommentCard } from '../CommentCard';
-import { InfoVideoClass } from '../../pages/VideoClass';
+import { Comment } from '../../pages/VideoClass';
 import * as S from './styles';
 
 type CommentListProps = {
-  comments: InfoVideoClass[];
+  comments: Comment[];
 };
 
 export const CommentList = ({ comments }: CommentListProps) => {
