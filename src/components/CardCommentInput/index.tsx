@@ -1,35 +1,43 @@
 import { useState } from 'react';
 import * as S from './styles';
 
-export const CardCommentInput = () => {
-  const [input, setInput] = useState(true);
+import api from '../../services/api';
 
-  function mudarBotao() {
-    setInput(false);
+type PropsCardCommentInput = {
+  videoId: string;
+  avatar: string;
+};
+
+export const CardCommentInput = ({
+  videoId,
+  avatar
+}: PropsCardCommentInput) => {
+  const [query, setQuery] = useState('');
+
+  function SendComment() {
+    api.post(`/videos/${videoId}/comentarios/`, {
+      texto: query
+    });
+    setQuery('');
   }
 
   return (
     <S.Container>
-      <S.Container2>
-        <S.Avatar
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI3vvVZ-pOGsyhaNEm9s-tm96lh7OGxJrpPQ&usqp=CAU"
-          alt="Foto do usuário"
+      <S.UserCard>
+        <S.Avatar src={avatar} alt="Foto do usuário" />
+        <S.Input
+          onChange={(event) => setQuery(event.target.value)}
+          value={query}
+          placeholder="Deixe um Comentário.."
         />
-        <S.Input onClick={mudarBotao} />
-      </S.Container2>
-      <S.Buttons>
-        {input ? (
-          <>
-            <S.DefaultButton>Cancelar</S.DefaultButton>
-            <S.DefaultButton>Comentar</S.DefaultButton>
-          </>
+      </S.UserCard>
+      <S.CardButton>
+        {query === '' ? (
+          <S.DefaultButton>Comentar</S.DefaultButton>
         ) : (
-          <>
-            <S.Button2>Cancelar</S.Button2>
-            <S.Button>Comentar</S.Button>
-          </>
+          <S.Button onClick={SendComment}>Comentar</S.Button>
         )}
-      </S.Buttons>
+      </S.CardButton>
     </S.Container>
   );
 };

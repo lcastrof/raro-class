@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  font-size: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
 `;
 
-export const Container2 = styled.div`
+export const UserCard = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -33,7 +34,6 @@ export const Input = styled.input`
   width: 100%;
   padding-inline: 1.5rem;
   padding-block: 1rem;
-  height: 40px;
   /* padding-left: 100px; */
   margin-left: 20px;
   border: 2px solid transparent;
@@ -50,46 +50,29 @@ export const Input = styled.input`
   `}
 `;
 
-export const Buttons = styled.div`
+export const CardButton = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
 
 export const Button = styled.button`
-  border: 1px solid;
-
   ${({ theme }) => css`
     background: ${theme.colors.gradients.bgNotFoundPage};
     border-radius: ${theme.border.radius.large};
     padding-inline: 1.8rem;
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.small};
-    font-weight: ${theme.font.weight.medium};
-  `}
-`;
-
-export const Button2 = styled.button`
-  border: 1px solid;
-
-  ${({ theme }) => css`
-    background: red;
-    border-radius: ${theme.border.radius.large};
-    padding-inline: 1.8rem;
-    color: ${theme.colors.white};
-    font-size: ${theme.font.sizes.small};
-    font-weight: ${theme.font.weight.medium};
+    height: 30px;
   `}
 `;
 
 export const DefaultButton = styled.button`
-  border: 1px solid;
-
   ${({ theme }) => css`
     background: ${theme.colors.gray};
     border-radius: ${theme.border.radius.large};
     padding-inline: 1.8rem;
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.small};
-    font-weight: ${theme.font.weight.medium};
+    height: 30px;
   `}
 `;
