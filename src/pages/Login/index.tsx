@@ -10,6 +10,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './styles';
+import { LinkHome } from '../../components/LinkHome';
 import { useAuth } from '../../store/auth';
 
 export const Login: React.FC = () => {
@@ -64,6 +65,7 @@ export const Login: React.FC = () => {
           url: '/cadastro',
           text: 'Criar Conta'
         }}
+        linkHome={<LinkHome />}
       >
         {errorMessage && (
           <S.ErrorMessageWrapper>
