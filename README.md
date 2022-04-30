@@ -1,3 +1,87 @@
+<h1 align="center">
+    <img src="./assets/art/artBannerReadme.png" alt="Banner Raro Class/Raro Academy"  />
+</h1>
+
+## 💻 Sobre o projeto RaroClass
+
+A **Raro Class** é uma plataforma digital onde ficam disponibilizadas as **aulas gravadas** pela **Raro Academy**, de forma **online** e com um ambiente agradável para o aluno.
+
+O **aluno matriculado** na Raro Academy pode assistir a estas aulas gravadas quando e onde quiser!
+O aluno pode se cadastrar na Raro Class com:
+
+- seu e-mail
+- senha
+- e o **código da turma** - que irá receber após a sua matrícula na Raro Academy.
+
+O **aluno autenticado** no site Raro Class poderá:
+
+- assistir as aulas gravadas (aulas do curso, monitoria e aula pública/aulão da Raro)
+- filtrá-las por semana
+- favoritá-las
+- e fazer comentários na vídeo aula
+
+Também há a possibilidade dos **visitantes** do site Raro Class **assistirem às aulas** de forma **online** e terem aquele gostinho de experienciar uma aula com a Raro Academy!
+
+Estas aulas são chamadas de **aulas públicas**, disponibilizadas pela Raro Academy na página inicial - aulas apelidadas carinhosamente de **“Aulão da Raro”.**
+
+
+## 🎨 Layout
+
+O layout da aplicação está disponível no Figma:
+
+<a href="https://www.figma.com/file/oa5yvAXVhSfdAtCkrn7MsK/Design-RaroClass">
+  <img alt="Made by tgmarinho" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
+</a>
+
+
+## Website
+
+<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+  <img alt="Imagem da tela de login do site Raro Class" src="./assets/art/screenshotLogin.png" width="400px">
+
+  <img alt="NextLevelWeek" src="./assets/sucesso-web.svg" width="400px">
+</p>
+
+
+## 🛠 Linguagens e ferramentas usadas:
+
+<p align="left">
+  <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
+  </a>
+  <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
+  </a>
+   <a href="https://git-scm.com/" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
+  </a>
+
+  <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer">  
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>
+  </a>
+  <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer">  
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
+  </a>
+   <a href="https://www.figma.com/" target="_blank" rel="noreferrer">
+    <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/>
+  </a>
+</p>
+
+
+## 🚀 Como executar o projeto
+
+
+
+
+
+___
+
+👨‍💻 **Projeto desenvolvido** com carinho no final do **Curso de React JS - 2022**, pelo grupo  "Na minha máquina funciona", composta pelos alunos:
+
+[Denis Gomes](https://github.com/Denis-araujo), [Evanildo Silva](https://github.com/Evanildo-Silva), [Francielle Zucolota](https://github.com/franzitaz) e [Lucas Castro](https://github.com/lcastrof).
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
