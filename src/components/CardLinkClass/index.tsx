@@ -1,10 +1,10 @@
-import { forwardRef, useEffect, useState } from 'react';
-import { BsStar, BsStarFill } from 'react-icons/bs';
+import { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
-import { useFavorites } from '../../store/favorites';
 import { Video } from '../../types/Video';
-import Spinner from '../Spinner';
+import { FavoriteButton } from '../FavoriteButton';
+import ScrollSign from '../ScrollSign';
+
 import * as S from './styles';
 
 type CardVideoProps = {
@@ -18,52 +18,22 @@ export const CardLinkClass = forwardRef<HTMLAnchorElement, CardVideoProps>(
 
     const { isAuthenticated } = useAuth();
 
-    const { favorites, addFavorite, removeFavorite } = useFavorites();
-
-    const [isFavorited, setIsFavorited] = useState(false);
-
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-      const isAlreadyFavorited = favorites.find(
-        (favorite) => favorite.id === id
-      );
-      setIsFavorited(!!isAlreadyFavorited);
-    }, [favorites, id]);
-
-    const handleFavorite = async (event: React.MouseEvent<HTMLElement>) => {
-      setIsLoading(true);
-      event.stopPropagation();
-      event.preventDefault();
-      if (isFavorited) {
-        await removeFavorite(id);
-      } else {
-        await addFavorite(videoRecomendedData);
-      }
-      setIsLoading(false);
-      setIsFavorited(!isFavorited);
-    };
     return (
       <Link to={`/video/${id}`} ref={ref}>
         <S.Container fixedWidth={fixedWidth}>
           {isAuthenticated && (
-            <S.Star>
-              <S.StarButton onClick={handleFavorite} isFavorited={isFavorited}>
-                {isLoading ? (
-                  <Spinner size={25} />
-                ) : isFavorited ? (
-                  <BsStarFill size={25} />
-                ) : (
-                  <BsStar size={25} />
-                )}
-              </S.StarButton>
-            </S.Star>
+            <FavoriteButton
+              video={videoRecomendedData}
+              defaultColor="primary"
+            />
           )}
           <S.WrapInfo>
-            <S.Title>{nome}</S.Title>
+            <ScrollSign>
+              <S.Title>{nome}</S.Title>
+            </ScrollSign>
             <S.WrapIconInfo>
-              <S.IconPlay
-                src="/assets/icon/icon-PlayDecoration.svg"
+              <img
+                src="/assets/icon/icon-playDecoration.svg"
                 alt="Play Aula Decoração"
               />
               <S.VideoTimeLenght>{duracao}</S.VideoTimeLenght>
