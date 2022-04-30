@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
-  margin-top: 8rem;
-`;
+export const Container = styled.section``;
 
 export const FavoriteVideosWrapper = styled.div<{ hide?: boolean }>`
   position: relative;
   padding-inline: 6.4rem;
-  max-height: ${({ hide }) => (hide ? '0' : '19.8rem')};
+  max-height: ${({ hide }) => (hide ? '0' : '21.8rem')};
   overflow-y: hidden;
   transition: max-height 300ms ease-in-out 0s;
 `;

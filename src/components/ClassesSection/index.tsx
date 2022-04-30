@@ -14,6 +14,7 @@ type ClassesSectionProps = {
   topicFilterOptions?: string[];
   handleTopicFilter?: (topic: string) => void;
   filterLoading?: boolean;
+  type?: 'class' | 'tutoring' | 'openClasses' | 'favorite';
   isLoading?: boolean;
 };
 
@@ -67,7 +68,8 @@ export const ClassesSection: React.FC<ClassesSectionProps> = ({
   topicFilterOptions,
   handleTopicFilter,
   filterLoading,
-  isLoading
+  isLoading,
+  type = 'class'
 }) => {
   const cardRef = useRef(null);
   const { isAuthenticated } = useAuth();
@@ -79,7 +81,7 @@ export const ClassesSection: React.FC<ClassesSectionProps> = ({
   if (!isAuthenticated) {
     return (
       <S.Container>
-        <RowTitle title={title} level={1} />
+        <RowTitle title={title} level={1} type="openClasses" />
         <S.OpenClassesWrapper>
           {classes.map((classItem) => (
             <CardVideo key={classItem.id} classData={classItem} />
@@ -92,7 +94,7 @@ export const ClassesSection: React.FC<ClassesSectionProps> = ({
   return (
     <S.Container>
       <S.RowContainer>
-        <RowTitle title={title} />
+        <RowTitle title={title} type={type} />
         {topicFilterOptions ? (
           <S.SelectContainer>
             <S.Select

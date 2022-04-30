@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 type IconProps = {
-  type: 'class' | 'favorite';
+  type: 'class' | 'favorite' | 'tutoring' | 'openClasses';
 };
 
 export const Container = styled.div`
@@ -9,8 +9,10 @@ export const Container = styled.div`
   flex: 1;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: ${({ theme }) => theme.spacing.large};
-  padding-inline: ${({ theme }) => theme.spacing.huge};
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacing.large};
+    padding-inline: ${theme.spacing.huge};
+  `}
 `;
 
 export const TitleWrapper = styled.div`
@@ -20,14 +22,15 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: ${({ theme }) => theme.font.sizes.large};
-  font-weight: ${({ theme }) => theme.font.weight.medium};
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.large};
+    font-weight: ${theme.font.weight.medium};
+  `}
 `;
 
 export const Icon = styled.img<IconProps>`
   height: 100%;
-  max-height: 4.5rem;
-  width: ${({ type }) => (type === 'class' ? 'auto' : '6.3rem')};
+  max-height: 6.4rem;
 `;
 
 export const WrapButtonShowOrHide = styled.div`

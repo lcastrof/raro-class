@@ -140,6 +140,7 @@ export const Home = () => {
             <ClassesSection
               classes={tutoringClasses}
               title="Monitorias"
+              type="tutoring"
               isLoading={loadingClasses}
             />
             <DivideLine />
@@ -148,6 +149,7 @@ export const Home = () => {
         <ClassesSection
           classes={openClasses}
           title="Nossos Aulões"
+          type="openClasses"
           isLoading={loadingClasses}
         />
       </S.Container>

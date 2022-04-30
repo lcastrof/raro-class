@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 type RowTitleProps = {
   title: string;
-  type?: 'class' | 'favorite';
+  type?: 'class' | 'favorite' | 'tutoring' | 'openClasses';
   level?: 1 | 2;
   withHideButton?: boolean;
   onHide?: () => void;
@@ -17,11 +17,6 @@ export const RowTitle: React.FC<RowTitleProps> = ({
   withHideButton,
   onHide
 }) => {
-  const iconSrc =
-    type === 'class'
-      ? '/assets/art/artIcon-logoHatRaroAcademy.svg'
-      : '/assets/art/artIcon-starPreenchida.svg';
-
   const [buttonHideOrShow, setButtonHideOrShow] = useState(true);
 
   const handleHide = () => {
@@ -29,10 +24,23 @@ export const RowTitle: React.FC<RowTitleProps> = ({
     onHide?.();
   };
 
+  const getCorrectIconSrc = () => {
+    switch (type) {
+      case 'class':
+        return '/assets/art/artIcon-logoHatRaroAcademy.svg';
+      case 'favorite':
+        return '/assets/art/artIcon-starPreenchida.svg';
+      case 'tutoring':
+        return '/assets/art/artIcon-checkList.svg';
+      case 'openClasses':
+        return '/assets/art/artIcon-megaPhone.svg';
+    }
+  };
+
   return (
     <S.Container>
       <S.TitleWrapper>
-        <S.Icon src={iconSrc} type={type} />
+        <S.Icon src={getCorrectIconSrc()} type={type} />
         <S.Title as={level === 1 ? 'h1' : 'h2'}>{title}</S.Title>
       </S.TitleWrapper>
 
