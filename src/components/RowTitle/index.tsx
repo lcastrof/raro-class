@@ -35,8 +35,9 @@ export const RowTitle: React.FC<RowTitleProps> = ({
         <S.Icon src={iconSrc} type={type} />
         <S.Title as={level === 1 ? 'h1' : 'h2'}>{title}</S.Title>
       </S.TitleWrapper>
-      <S.WrapButtonShowOrHide>
-        {withHideButton && (
+
+      {withHideButton ? (
+        <S.WrapButtonShowOrHide>
           <S.ButtonShowOrHide type="button" onClick={handleHide}>
             {buttonHideOrShow ? (
               <>
@@ -50,8 +51,8 @@ export const RowTitle: React.FC<RowTitleProps> = ({
               </>
             )}
           </S.ButtonShowOrHide>
-        )}
-      </S.WrapButtonShowOrHide>
+        </S.WrapButtonShowOrHide>
+      ) : null}
     </S.Container>
   );
 };

@@ -64,11 +64,11 @@ export const Cadastro: React.FC = () => {
         }}
         icon={<MdKeyboardArrowLeft size={18} />}
       >
-        {errorMessage && (
+        {errorMessage ? (
           <S.ErrorMessageWrapper>
             <S.ErrorMessage>{errorMessage}</S.ErrorMessage>
           </S.ErrorMessageWrapper>
-        )}
+        ) : null}
         <form id="register-form" onSubmit={handleSubmit(handleRegister)}>
           <Input
             name="nome"

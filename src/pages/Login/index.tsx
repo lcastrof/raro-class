@@ -65,11 +65,11 @@ export const Login: React.FC = () => {
           text: 'Criar Conta'
         }}
       >
-        {errorMessage && (
+        {errorMessage ? (
           <S.ErrorMessageWrapper>
             <S.ErrorMessage>{errorMessage}</S.ErrorMessage>
           </S.ErrorMessageWrapper>
-        )}
+        ) : null}
         <form id="login-form" onSubmit={handleSubmit(handleLogin)}>
           <Input
             name="email"

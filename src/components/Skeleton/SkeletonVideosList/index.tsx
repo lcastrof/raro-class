@@ -1,12 +1,20 @@
 import * as S from './styles';
 
-export const SkeletonVideosList = () => {
+type SkeletonVideosListprops = {
+  onlyVideos?: boolean;
+};
+
+export const SkeletonVideosList: React.FC<SkeletonVideosListprops> = ({
+  onlyVideos
+}) => {
   return (
     <S.Container>
-      <S.Header>
-        <S.Logo />
-        <S.TitleList />
-      </S.Header>
+      {!onlyVideos ? (
+        <S.Header>
+          <S.Logo />
+          <S.TitleList />
+        </S.Header>
+      ) : null}
       <S.Main>
         <S.CardContent>
           <S.CardVideo />

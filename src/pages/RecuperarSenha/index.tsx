@@ -56,11 +56,11 @@ export const RecuperarSenha = () => {
         icon={<MdKeyboardArrowLeft size={18} />}
         iconRight={<MdKeyboardArrowRight size={18} />}
       >
-        {errorMessage && (
+        {errorMessage ? (
           <S.ErrorMessageWrapper>
             <S.ErrorMessage>{errorMessage}</S.ErrorMessage>
           </S.ErrorMessageWrapper>
-        )}
+        ) : null}
         <form id="request-code-form" onSubmit={handleSubmit(handleRequestCode)}>
           <Input
             name="email"

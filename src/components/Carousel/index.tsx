@@ -127,16 +127,16 @@ const Carousel = ({ children, cardRef }: CarouselTypes) => {
       }}
     >
       <S.Container id="carousel-container">{children}</S.Container>
-      {isLeftButtonVisible && (
+      {isLeftButtonVisible ? (
         <S.ArrowLeft onClick={handleScrollLeft}>
           <FiChevronLeft />
         </S.ArrowLeft>
-      )}
-      {isRightButtonVisible && (
+      ) : null}
+      {isRightButtonVisible ? (
         <S.ArrowRight onClick={handleScrollRight}>
           <FiChevronRight />
         </S.ArrowRight>
-      )}
+      ) : null}
     </S.Carousel>
   );
 };
