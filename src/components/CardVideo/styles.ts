@@ -11,7 +11,7 @@ type StarButtonProps = {
 export const Container = styled.div<{ fixedWidth?: boolean }>`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.xsmall};
+  gap: ${({ theme }) => theme.spacing.small};
   position: relative;
 
   width: ${({ fixedWidth }) => (fixedWidth ? '30rem' : '100%')};

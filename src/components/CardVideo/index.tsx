@@ -1,11 +1,12 @@
 import * as S from './styles';
 import { BsStar, BsStarFill } from 'react-icons/bs';
-import { Video } from '../../pages/Home';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
 import { useFavorites } from '../../store/favorites';
 import { forwardRef, useEffect, useState } from 'react';
 import Spinner from '../Spinner';
+import ScrollSign from '../ScrollSign';
+import { Video } from '../../types/Video';
 
 type CardVideoProps = {
   classData: Video;
@@ -58,7 +59,9 @@ export const CardVideo = forwardRef<HTMLAnchorElement, CardVideoProps>(
               </S.StarButton>
             )}
           </S.VideoField>
-          <S.Title>{nome}</S.Title>
+          <ScrollSign>
+            <S.Title>{nome}</S.Title>
+          </ScrollSign>
         </S.Container>
       </Link>
     );
