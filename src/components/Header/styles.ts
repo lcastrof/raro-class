@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const HeaderContainer = styled.header`
-  height: 5.3rem;
+  height: 9.3rem;
   width: 100%;
   display: flex;
   align-items: center;
@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
     box-shadow: ${theme.boxShadow.header};
     background-color: ${theme.colors.white};
     padding-inline: ${theme.spacing.huge};
-    padding-block: ${theme.spacing.xsmall};
+    padding-block: ${theme.spacing.medium};
   `}
 `;
 
