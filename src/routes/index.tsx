@@ -19,9 +19,10 @@ export const AppRoutes = () => {
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/novasenha" element={<NovaSenha />} />
         <Route path="/recuperarsenha" element={<RecuperarSenha />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

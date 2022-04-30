@@ -40,12 +40,12 @@ export const MainTextLayout = ({
           {icon}
           {linkparagrafo1.text}
         </Link>
-        {linkparagrafo2 && (
+        {linkparagrafo2 ? (
           <Link to={linkparagrafo2?.url as string}>
             {linkparagrafo2?.text}
             {iconRight}
           </Link>
-        )}
+        ) : null}
       </S.LinksParagrafo>
       <S.Footer>
         {linkHome}

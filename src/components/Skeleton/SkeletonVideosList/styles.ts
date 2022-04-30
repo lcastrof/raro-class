@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div``;
 
@@ -6,12 +6,14 @@ export const Header = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 1.4rem;
 `;
 
 export const Logo = styled.div`
-  width: 6.5rem;
-  height: 6.5rem;
-  margin-left: ${({ theme }) => theme.spacing.huge};
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-left: 6.4rem;
+  border-radius: 50%;
   background-image: linear-gradient(
     -90deg,
     #e7edf1 0%,
@@ -32,8 +34,9 @@ export const Logo = styled.div`
 `;
 export const TitleList = styled.div`
   width: 16rem;
-  height: 5rem;
-  margin: ${({ theme }) => theme.spacing.small};
+  height: 3.5rem;
+  margin: 1rem;
+  border-radius: 2.5rem;
   background-image: linear-gradient(
     -90deg,
     #e7edf1 0%,
@@ -54,25 +57,21 @@ export const TitleList = styled.div`
 `;
 export const Main = styled.div`
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  align-items: center;
-  padding-left: ${({ theme }) => theme.spacing.small};
+  padding-left: 6.4rem;
 `;
+
 export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: ${({ theme }) => theme.spacing.medium};
 `;
 export const CardVideo = styled.div`
-  width: 40rem;
+  width: 30rem;
   height: 16.5rem;
-  ${({ theme }) => css`
-    margin: ${theme.spacing.medium};
-    margin-bottom: 0;
-    border-radius: ${theme.border.radius.medium};
-  `};
+  margin-right: 1rem;
+  margin-bottom: 0;
+  border-radius: 2.5rem;
   background-image: linear-gradient(
     -90deg,
     #e7edf1 0%,
@@ -92,13 +91,10 @@ export const CardVideo = styled.div`
   }
 `;
 export const TitleVideo = styled.div`
-  width: 38rem;
-  height: 2.5rem;
-  ${({ theme }) => css`
-    margin-top: ${theme.spacing.xsmall};
-    margin-bottom: 0;
-    border-radius: ${theme.border.radius.medium};
-  `};
+  width: 28rem;
+  height: 1.9rem;
+  margin-top: 0.5rem;
+  border-radius: 2.5rem;
   background-image: linear-gradient(
     -90deg,
     #e7edf1 0%,

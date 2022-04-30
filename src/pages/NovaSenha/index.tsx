@@ -59,11 +59,11 @@ export const NovaSenha = () => {
         icon={<MdKeyboardArrowLeft size={18} />}
         linkHome={<LinkHome />}
       >
-        {errorMessage && (
+        {errorMessage ? (
           <S.ErrorMessageWrapper>
             <S.ErrorMessage>{errorMessage}</S.ErrorMessage>
           </S.ErrorMessageWrapper>
-        )}
+        ) : null}
         <form id="new-password-form" onSubmit={handleSubmit(handleNewPassword)}>
           <Input
             name="codigo"

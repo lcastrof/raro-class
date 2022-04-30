@@ -1,11 +1,13 @@
 import * as S from './styles';
 import { BsStar, BsStarFill } from 'react-icons/bs';
-import { Video } from '../../pages/Home';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
 import { useFavorites } from '../../store/favorites';
 import { forwardRef, useEffect, useState } from 'react';
 import Spinner from '../Spinner';
+import ScrollSign from '../ScrollSign';
+import { Video } from '../../types/Video';
+import { formataDate } from '../../helpers/date';
 
 type CardVideoProps = {
   classData: Video;
@@ -14,7 +16,7 @@ type CardVideoProps = {
 
 export const CardVideo = forwardRef<HTMLAnchorElement, CardVideoProps>(
   ({ classData, fixedWidth }, ref) => {
-    const { id, thumbUrl, nome } = classData;
+    const { id, thumbUrl, nome, dataPublicacao, duracao } = classData;
 
     const { isAuthenticated } = useAuth();
     const { favorites, addFavorite, removeFavorite } = useFavorites();
@@ -58,7 +60,17 @@ export const CardVideo = forwardRef<HTMLAnchorElement, CardVideoProps>(
               </S.StarButton>
             )}
           </S.VideoField>
-          <S.Title>{nome}</S.Title>
+          <S.TitleWrapper>
+            <img src="/assets/icon/icon-playTitle.svg" alt="Play icon" />
+            <ScrollSign>
+              <S.Title>{nome}</S.Title>
+            </ScrollSign>
+          </S.TitleWrapper>
+          <S.SecondaryInfo>
+            {dataPublicacao ? <time>{formataDate(dataPublicacao)}</time> : null}
+            <span>•</span>
+            <p>{duracao}</p>
+          </S.SecondaryInfo>
         </S.Container>
       </Link>
     );

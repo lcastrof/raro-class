@@ -1,9 +1,9 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { BsStar, BsStarFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { Video } from '../../pages/Home';
 import { useAuth } from '../../store/auth';
 import { useFavorites } from '../../store/favorites';
+import { Video } from '../../types/Video';
 import Spinner from '../Spinner';
 import * as S from './styles';
 

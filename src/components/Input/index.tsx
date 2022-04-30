@@ -39,7 +39,7 @@ export const Input = ({
         {...inputAttributes}
       />
 
-      {isPassword && (
+      {isPassword ? (
         <button
           className="icon-action"
           type="button"
@@ -51,8 +51,8 @@ export const Input = ({
             <AiOutlineEyeInvisible size={18} />
           )}
         </button>
-      )}
-      {errors && <S.ErrorMessage>{errors.message}</S.ErrorMessage>}
+      ) : null}
+      {errors ? <S.ErrorMessage>{errors.message}</S.ErrorMessage> : null}
     </S.Container>
   );
 };

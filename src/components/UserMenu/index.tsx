@@ -41,7 +41,7 @@ export const UserMenu = () => {
             <MdKeyboardArrowDown size={20} />
           )}
         </S.DropdownButton>
-        {isOpen && <UserDropdown />}
+        {isOpen ? <UserDropdown /> : null}
       </S.DropdownWrapper>
     </S.Container>
   );
