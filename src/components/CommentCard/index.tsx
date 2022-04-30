@@ -34,9 +34,7 @@ export const CommentCard = ({
   function handleLike() {
     if (iconDown) {
       setIconDown(false);
-      api.delete(
-        '/videos/25526467-e9d7-40cb-bc60-76bb85419915/comentarios/658c8aaf-ba11-4fdb-8fe9-fdf299db34d3/votes'
-      );
+      api.delete(`/videos/${video}/comentarios/${commentId}/votes`);
     }
     {
       !iconUp ? setIconUp(true) : setIconUp(false);
@@ -53,9 +51,7 @@ export const CommentCard = ({
   async function handleDislike() {
     if (iconUp) {
       setIconUp(false);
-      api.delete(
-        '/videos/25526467-e9d7-40cb-bc60-76bb85419915/comentarios/658c8aaf-ba11-4fdb-8fe9-fdf299db34d3/votes'
-      );
+      api.delete(`/videos/${video}/comentarios/${commentId}/votes`);
     }
     {
       !iconDown ? setIconDown(true) : setIconDown(false);
