@@ -4,10 +4,6 @@ type VideoFieldProps = {
   backgroundImg: string;
 };
 
-type StarButtonProps = {
-  isFavorited: boolean;
-};
-
 export const Container = styled.div<{ fixedWidth?: boolean }>`
   display: flex;
   flex-direction: column;
@@ -28,6 +24,13 @@ export const VideoField = styled.div<VideoFieldProps>`
     border-radius: ${theme.border.radius.medium};
     box-shadow: ${theme.boxShadow.thumb};
     transition: all 0.3s;
+
+    > button {
+      position: absolute;
+      bottom: ${theme.spacing.small};
+      right: ${theme.spacing.small};
+    }
+
     &::after {
       content: '';
       background: transparent;
@@ -63,28 +66,6 @@ export const Title = styled.p`
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.weight.medium};
   `}
-`;
-export const StarButton = styled.div<StarButtonProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 4rem;
-  height: 4rem;
-  z-index: 2;
-  ${({ theme, isFavorited }) => css`
-    border-radius: ${theme.border.radius.round};
-    bottom: ${theme.spacing.small};
-    right: ${theme.spacing.small};
-    transition: all 0.3s;
-    > svg {
-      fill: ${isFavorited ? theme.colors.yellow : theme.colors.white};
-    }
-    &:hover {
-      background-color: ${theme.colors.gray};
-    }
-  `}
-  cursor: pointer;
 `;
 
 export const SecondaryInfo = styled.div`
