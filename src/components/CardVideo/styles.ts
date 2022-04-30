@@ -45,6 +45,16 @@ export const VideoField = styled.div<VideoFieldProps>`
     }
   `}
 `;
+
+export const TitleWrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    padding-left: ${theme.spacing.medium};
+    gap: ${theme.spacing.small};
+  `}
+`;
+
 export const Title = styled.p`
   ${({ theme }) => css`
     white-space: nowrap;
@@ -52,7 +62,6 @@ export const Title = styled.p`
     overflow: hidden;
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.weight.medium};
-    padding-left: ${theme.spacing.medium};
   `}
 `;
 export const StarButton = styled.div<StarButtonProps>`
@@ -76,4 +85,18 @@ export const StarButton = styled.div<StarButtonProps>`
     }
   `}
   cursor: pointer;
+`;
+
+export const SecondaryInfo = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    padding-left: calc(${theme.spacing.medium} + 2.4rem);
+    padding-right: ${theme.spacing.small};
+    font-size: ${theme.font.sizes.xsmall};
+    color: ${theme.colors.gray};
+
+    > span {
+      margin-inline: ${theme.spacing.xsmall};
+    }
+  `}
 `;
