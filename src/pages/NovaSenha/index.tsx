@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import * as S from './styles';
+import { CardCommentInput } from '../../components/CardCommentInput';
 
 export const NovaSenha = () => {
   const [errorMessage, setErrorMessage] = useState('');
@@ -95,6 +96,7 @@ export const NovaSenha = () => {
           form="new-password-form"
           loading={isSubmitting}
         />
+        <CardCommentInput />
       </MainTextLayout>
     </PageMain>
   );
