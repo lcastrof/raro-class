@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const ContainerPLayerVideo = styled.div`
+  flex: 1;
   .react-player > div {
     background-repeat: no-repeat;
     background-size: contain !important;
@@ -16,9 +17,8 @@ export const ContainerPLayerVideo = styled.div`
 
 export const WrapInfo = styled.div`
   display: flex;
-  padding: ${({ theme }) => theme.spacing.small};
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  flex: 1;
+  padding-block: ${({ theme }) => theme.spacing.large};
 `;
 
 export const Star = styled.div`
@@ -26,17 +26,11 @@ export const Star = styled.div`
   padding-right: 1.5rem;
 `;
 
-// type StarButtonProps = {
-//   isFavorited: boolean;
-// };
-
-// export const StarButton = styled.div<StarButtonProps>`
 export const StarButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 4rem;
-  /* height: 56%; */
   margin-left: -${({ theme }) => theme.spacing.small};
   margin-top: ${({ theme }) => theme.spacing.xxsmall};
 
@@ -56,56 +50,60 @@ export const StarButton = styled.div`
 `;
 
 export const WrapTitleDescription = styled.div`
-  width: 83%;
-  font-size: 1rem;
-  /* margin-top: ${({ theme }) => theme.spacing.medium}; */
-  overflow-wrap: break-word;
+  ${({ theme }) => css`
+    width: 83%;
+    font-size: 1rem;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    gap: ${theme.spacing.xsmall};
 
-  h1 {
-    color: ${({ theme }) => theme.colors.primary};
-    font-weight: ${({ theme }) => theme.font.weight.semiBold};
-    margin-bottom: ${({ theme }) => theme.spacing.small};
-  }
+    h1 {
+      color: ${theme.colors.primary};
+      font-weight: ${theme.font.weight.semiBold};
+    }
 
-  h2 {
-    color: ${({ theme }) => theme.colors.primary};
-    font-weight: ${({ theme }) => theme.font.weight.regular};
-    font-size: ${({ theme }) => theme.font.sizes.small};
-  }
+    h2 {
+      color: ${theme.colors.primary};
+      font-weight: ${theme.font.weight.regular};
+      font-size: ${theme.font.sizes.small};
+    }
+
+    > time {
+      font-size: ${theme.font.sizes.xsmall};
+      color: ${theme.colors.gray};
+    }
+  `}
 `;
+
 export const Container = styled.div`
-  display: inline-flex;
-  /* width: 100%; */
-  margin-top: -4rem;
-`;
-
-export const Container2 = styled.div`
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  /* padding-block: 0 !important; */
-  margin-top: 10.2rem;
+  ${({ theme }) => css`
+    gap: ${theme.spacing.medium};
+    padding-top: ${theme.spacing.medium};
+    padding-left: ${theme.spacing.medium};
+  `}
 `;
 
 export const ContainerLeft = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
-  /* justify-content: space-between; */
-  width: 75vw;
+  padding-bottom: ${({ theme }) => theme.spacing.xxlarge};
 `;
 
 export const ContainerRight = styled.div`
-  width: 25vw;
-  margin-top: -4rem;
   background: #fbfbfe;
   box-shadow: -4px 0px 20px rgb(0 0 0 / 10%);
 `;
 
 export const TitleRecommended = styled.div`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.font.sizes.small};
-  font-weight: ${({ theme }) => theme.font.weight.semiBold};
-  text-align: center;
-  padding: ${({ theme }) => theme.spacing.medium};
-  background-color: #dadada;
+  ${({ theme }) => css`
+    text-align: center;
+    background-color: #dadada;
+    color: ${theme.colors.primary};
+    font-size: ${theme.font.sizes.small};
+    font-weight: ${theme.font.weight.semiBold};
+    padding: ${theme.spacing.medium};
+  `}
 `;
