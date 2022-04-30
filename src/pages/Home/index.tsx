@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { ClassesSection } from '../../components/ClassesSection';
 import DivideLine from '../../components/DivideLine';
@@ -34,59 +34,46 @@ export const Home = () => {
   const { isAuthenticated } = useAuth();
   const { fetchFavorites } = useFavorites();
 
+  const loadAllClasses = useCallback(async () => {
+    const { classesData, tutoringClassesData, openClassesData } =
+      await getMultipleClassesByTopic();
+
+    setClasses(classesData);
+    setTutoringClasses(tutoringClassesData);
+    setOpenClasses(openClassesData);
+  }, []);
+
+  const loadOpenClasses = useCallback(async () => {
+    const classesData = await getClasses({});
+
+    setOpenClasses(classesData);
+  }, []);
+
+  const loadFavorites = useCallback(async () => {
+    await fetchFavorites();
+  }, [fetchFavorites]);
+
+  const loadData = useCallback(async () => {
+    setLoadingClasses(true);
+    try {
+      if (isAuthenticated) {
+        await loadFavorites();
+        await loadAllClasses();
+      } else {
+        await loadOpenClasses();
+      }
+    } catch (err) {
+      console.log({ err });
+      toast.error('Erro ao carregar seus vídeos');
+    } finally {
+      setLoadingClasses(false);
+    }
+  }, [isAuthenticated, loadFavorites, loadAllClasses, loadOpenClasses]);
+
   // Pega todas as informações ao carregar a página
   useEffect(() => {
-    const loadAllClasses = async () => {
-      setLoadingClasses(true);
-
-      try {
-        const { classesData, tutoringClassesData, openClassesData } =
-          await getMultipleClassesByTopic();
-
-        setClasses(classesData);
-        setTutoringClasses(tutoringClassesData);
-        setOpenClasses(openClassesData);
-      } catch (err) {
-        console.log({ err });
-        toast.error('Erro ao carregar as aulas');
-      } finally {
-        setLoadingClasses(false);
-      }
-    };
-
-    const loadOpenClasses = async () => {
-      setLoadingClasses(true);
-      try {
-        const classesData = await getClasses({});
-
-        setOpenClasses(classesData);
-      } catch (err) {
-        console.log({ err });
-        toast.error('Erro ao carregar as aulas');
-      } finally {
-        setLoadingClasses(false);
-      }
-    };
-
-    const loadFavorites = async () => {
-      setLoadingClasses(true);
-      try {
-        await fetchFavorites();
-      } catch (err) {
-        console.log({ err });
-        toast.error('Erro ao carregar seus favoritos');
-      } finally {
-        setLoadingClasses(false);
-      }
-    };
-
-    if (isAuthenticated) {
-      loadFavorites();
-      loadAllClasses();
-    } else {
-      loadOpenClasses();
-    }
-  }, [fetchFavorites, isAuthenticated]);
+    loadData();
+  }, [loadData]);
 
   // Filtra as aulas
   useEffect(() => {
