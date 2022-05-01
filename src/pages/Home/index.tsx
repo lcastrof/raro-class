@@ -29,7 +29,7 @@ export const Home = () => {
   );
 
   const [loadingClasses, setLoadingClasses] = useState(true);
-  const [loadingClassesFilter, setLoadingClassesFilter] = useState(false);
+  const [loadingClassesFilter, setLoadingClassesFilter] = useState(true);
 
   const { isAuthenticated } = useAuth();
   const { fetchFavorites } = useFavorites();
@@ -37,7 +37,7 @@ export const Home = () => {
   // Pega todas as informações ao carregar a página
   useEffect(() => {
     const loadAllClasses = async () => {
-      setLoadingClasses(true);
+      setLoadingClasses(false);
 
       try {
         const { classesData, tutoringClassesData, openClassesData } =
@@ -55,7 +55,7 @@ export const Home = () => {
     };
 
     const loadOpenClasses = async () => {
-      setLoadingClasses(true);
+      setLoadingClasses(false);
       try {
         const classesData = await getClasses({});
 
@@ -69,7 +69,7 @@ export const Home = () => {
     };
 
     const loadFavorites = async () => {
-      setLoadingClasses(true);
+      setLoadingClasses(false);
       try {
         await fetchFavorites();
       } catch (err) {
@@ -92,7 +92,7 @@ export const Home = () => {
   useEffect(() => {
     if (!classesFilters) return;
     const filterClasses = async () => {
-      setLoadingClassesFilter(true);
+      setLoadingClassesFilter(false);
       try {
         const filteredData = await getClasses({ filters: classesFilters });
         setClasses(filteredData);
