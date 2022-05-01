@@ -20,17 +20,8 @@ export const CommentList = ({ comments, videoId }: CommentListProps) => {
 
   return (
     <S.ContainerCommentList>
-      {comments.map((commentsItems) => (
-        <CommentCard
-          key={commentsItems.id}
-          avatar={commentsItems.aluno.foto}
-          userName={commentsItems.aluno.nome}
-          userComment={commentsItems.texto}
-          upVotes={commentsItems.upVotes}
-          downVotes={commentsItems.downVotes}
-          video={videoId}
-          commentId={commentsItems.id}
-        />
+      {comments.map((comment) => (
+        <CommentCard key={comment.id} comment={comment} videoId={videoId} />
       ))}
     </S.ContainerCommentList>
   );

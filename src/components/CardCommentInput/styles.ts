@@ -8,6 +8,10 @@ export const Container = styled.div`
 export const UserCard = styled.div`
   display: flex;
   align-items: center;
+
+  > form {
+    width: 100%;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -38,6 +42,7 @@ export const Input = styled.input`
 
   ${({ theme }) => css`
     font-family: ${theme.font.family.montserrat};
+    font-size: ${theme.font.sizes.xsmall};
     border-radius: ${theme.border.radius.medium};
     box-shadow: ${theme.boxShadow.input};
 
@@ -48,20 +53,27 @@ export const Input = styled.input`
   `}
 `;
 
-export const CardButton = styled.div`
+export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
 
 export const Button = styled.button`
   ${({ theme }) => css`
-    background: ${theme.colors.gradients.bgNotFoundPage};
+    background-color: ${theme.colors.oceanBlue};
     border-radius: ${theme.border.radius.large};
     padding-inline: 2.8rem;
     color: ${theme.colors.white};
     font-size: ${theme.font.sizes.xxsmall};
-    height: 3rem;
+    width: 12rem;
+    padding-block: 0.8rem;
     margin-top: 1.5rem;
+
+    &:disabled {
+      background: ${theme.colors.gray};
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
   `}
 `;
 

@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  width: 50rem;
-  height: 10rem;
+  max-width: 50rem;
 
-  padding: 0.8rem;
   display: flex;
   align-items: flex-start;
 `;
@@ -27,6 +25,17 @@ export const Avatar = styled.img`
   `};
 `;
 
+export const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.medium};
+`;
+
+export const CommentDate = styled.div`
+  font-size: ${({ theme }) => theme.font.sizes.xxsmall};
+  color: ${({ theme }) => theme.colors.gray};
+`;
+
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,8 +54,8 @@ export const UserName = styled.p`
 
 export const Comment = styled.p`
   ${({ theme }) => css`
-    color: ${theme.colors.babyVioletBlue};
-    font-weight: ${theme.font.weight.bold};
+    color: ${theme.colors.black};
+    font-size: ${theme.font.sizes.small};
   `}
 `;
 
@@ -55,9 +64,13 @@ export const ReactComment = styled.div`
   font-size: 12px;
 
   ${({ theme }) => css`
-    p {
+    gap: ${theme.spacing.medium};
+    button {
+      display: flex;
+      align-items: flex-end;
+      gap: ${theme.spacing.xxsmall};
       color: ${theme.colors.maximumBlue};
-      padding-right: 2rem;
+      font-weight: ${theme.font.weight.bold};
     }
   `}
 `;
