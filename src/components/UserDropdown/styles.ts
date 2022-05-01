@@ -90,6 +90,41 @@ export const ActionItem = styled.button`
     border-radius: ${theme.border.radius.medium};
     padding-block: ${theme.spacing.xsmall};
     color: ${theme.colors.primary};
+    font-weight: ${theme.font.weight.medium};
+    &:hover {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary};
+    }
+  `};
+`;
+
+export const ActionsMenuLeft = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid ${theme.colors.violetBlue};
+    padding-top: ${theme.spacing.small};
+  `};
+`;
+
+export const ActionItemLeft = styled.button`
+  border: 0;
+  background-color: transparent;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  margin-top: -0.5rem;
+  margin-bottom: -1.3rem;
+  text-align: left;
+  border-radius: 0 !important;
+  padding-left: ${({ theme }) => theme.spacing.xlarge};
+
+  ${({ theme }) => css`
+    border-radius: ${theme.border.radius.medium};
+    padding-block: 0.7rem;
+    color: ${theme.colors.primary};
+    font-weight: ${theme.font.weight.medium};
     &:hover {
       color: ${theme.colors.white};
       background-color: ${theme.colors.primary};
