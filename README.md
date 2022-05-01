@@ -147,23 +147,24 @@ ___
 
 ## 🚀 Futuras Features
 - Site em geral:
-  - [ ] Responsividade Web em todo o site;
-  - [ ] Responsividade Mobile;
-  - [ ] Receber outros cursos na plataforma;
-  - [ ] Links ancorados na página inicial levando e alinhando aos aulões daquele curso;
+  - [ ] responsividade Web em todo o site;
+  - [ ] responsividade Mobile;
+  - [ ] receber outros cursos na plataforma;
+  - [ ] links ancorados na página inicial levando e alinhando aos aulões do curso escolhido;
 
 - Aluno:
   - Página inicial:
-    - [ ] Filtro por data nas aulas do curso;
-    - [ ] Filtro nas aulas de monitoria;
+      - [ ] filtro por data nas aulas do curso;
+      - [ ] filtro nas aulas de monitoria;
+      - [ ] mostrar indicador da quantidade de vídeos na navegação horizontal;
   - Dropdown do avatar:
-    - [ ] Perfil:
       - [ ] gerenciar perfil (nome, foto e senha);
-      - [ ] Acesso ao cronograma da aula;
-  - Na navegação horizontal das aulas:
-      - [ ] Indicador da quantidade de vídeos ali presente;
-
-
+      - [ ] acesso ao cronograma da aula;
+      - [ ] trocar de área de curso, se matriculado;
+  - Página de visualização:
+      - [ ] poder editar e excluir o comentário;   
+      
+<br/>
 Acompanhe a lista das [issues abertas](https://github.com/rarolabs/raro-academy-react-grupo-5/issues).
 
 <p align="right"><a href="#top">▲ Topo do site</a></p>
@@ -176,13 +177,15 @@ ___
 
 **Projeto desenvolvido** com carinho no final do **Curso de React JS_2022**, pelo grupo  "Na minha máquina funciona", composto **pelos alunos:**
 
-<img border-radius="100" src="https://avatars.githubusercontent.com/u/59769961?v=4" alt="avatar Denis Gomes" width="35"/>&nbsp;&nbsp;[Denis Gomes](https://github.com/Denis-araujo)
-
-<img border-radius="100" src="https://avatars.githubusercontent.com/u/98241842?v=4" alt="avatar Denis Gomes" width="35"/>&nbsp;&nbsp;[Evanildo Silva](https://github.com/Evanildo-Silva)
-
-<img border-radius="100" src="https://avatars.githubusercontent.com/u/11142312?v=4" alt="avatar Denis Gomes" width="35"/>&nbsp;&nbsp;[Francielle Zucolota](https://github.com/franzitaz)
-
-<img border-radius="100" src="https://avatars.githubusercontent.com/u/52727513?v=4" alt="avatar Denis Gomes" width="35"/>&nbsp;&nbsp;[Lucas Castro](https://github.com/lcastrof)
+<br/>
+<table align="center" border-style="none" class="markdown-body">
+  <tr>
+    <td align="center"><a href="https://github.com/Denis-araujo"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59769961?v=4" width="100px;" alt=""/><br /><sub><b>Denis Gomes</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Evanildo-Silva"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/98241842?v=4" width="100px;" alt=""/><br /><sub><b>Evanildo Silva</b></sub></a></td>
+    <td align="center"><a href="https://github.com/franzitaz"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/11142312?v=4" width="100px;" alt=""/><br /><sub><b>Francielle Zucolota</b></sub></a></td>
+    <td align="center"><a href="https://github.com/lcastrof"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/52727513?v=4" width="100px;" alt=""/><br /><sub><b>Lucas Castro</b></sub></a></td>
+  </tr>
+</table>
 
 <p align="right"><a href="#top">▲ Topo do site</a></p>
 <div id="agradecimentos"></div>
