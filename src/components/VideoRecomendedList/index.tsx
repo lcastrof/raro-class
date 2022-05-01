@@ -19,8 +19,6 @@ export const VideoRecomendedList = ({
     );
   }
 
-  console.log({ videoRecomended });
-
   return (
     <S.ContainerVideoRecomendedList>
       {videoRecomended.map((videoRecomendedItems) => (
