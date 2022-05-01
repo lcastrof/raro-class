@@ -11,7 +11,6 @@ const ScrollSign: React.FC<{
 
   const scrollSpeedFactor = 100; // Maior = scroll mais rápido
 
-  // update states
   const updateStates = () => {
     if (scrollRef.current) {
       setFullWidth(scrollRef.current?.scrollWidth);

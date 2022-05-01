@@ -1,9 +1,9 @@
 import { CommentCard } from '../CommentCard';
-import { InfoVideoClass } from '../../pages/VideoClass';
+import { Comment } from '../../pages/VideoClass';
 import * as S from './styles';
 
 type CommentListProps = {
-  comments: InfoVideoClass[];
+  comments: Comment[];
   videoId: string;
 };
 
@@ -20,17 +20,8 @@ export const CommentList = ({ comments, videoId }: CommentListProps) => {
 
   return (
     <S.ContainerCommentList>
-      {comments.map((commentsItems) => (
-        <CommentCard
-          key={commentsItems.id}
-          avatar={commentsItems.aluno.foto}
-          userName={commentsItems.aluno.nome}
-          userComment={commentsItems.texto}
-          upVotes={commentsItems.upVotes}
-          downVotes={commentsItems.downVotes}
-          video={videoId}
-          commentId={commentsItems.id}
-        />
+      {comments.map((comment) => (
+        <CommentCard key={comment.id} comment={comment} videoId={videoId} />
       ))}
     </S.ContainerCommentList>
   );

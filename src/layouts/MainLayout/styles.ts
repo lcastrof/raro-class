@@ -14,7 +14,6 @@ export const BellowWrapper = styled.div`
 `;
 
 export const MainContent = styled.main`
-  padding-top: ${({ theme }) => theme.spacing.xxlarge};
   display: flex;
   flex: 1;
   flex-direction: column;

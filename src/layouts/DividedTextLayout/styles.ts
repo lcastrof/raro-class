@@ -29,13 +29,13 @@ export const LinksParagrafo = styled.div`
   }
 `;
 
-export const LinkParagrafo1 = styled.a`
+export const LinkParagrafo1 = styled.div`
   &:hover {
     font-weight: ${({ theme }) => theme.font.weight.semiBold};
   }
 `;
 
-export const LinkParagrafo2 = styled.a`
+export const LinkParagrafo2 = styled.div`
   &:hover {
     font-weight: ${({ theme }) => theme.font.weight.semiBold};
   }

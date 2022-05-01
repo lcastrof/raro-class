@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex: 1;
   flex-wrap: nowrap;
-  gap: ${({ theme }) => theme.spacing.medium};
+  gap: ${({ theme }) => theme.spacing.large};
 
   &:hover {
     animation-play-state: paused;

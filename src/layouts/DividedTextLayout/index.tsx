@@ -3,7 +3,7 @@ import { ReactElement, ReactNode } from 'react';
 import { IconType } from 'react-icons';
 import { Link } from 'react-router-dom';
 
-type PropsLogin = {
+type DividedTextLayoutProps = {
   children: ReactNode;
   title: string;
   subTitle?: string;
@@ -20,7 +20,7 @@ type PropsLogin = {
   linkHome?: ReactNode;
 };
 
-export const MainTextLayout = ({
+export const DividedTextLayout = ({
   children,
   title,
   subTitle,
@@ -29,7 +29,7 @@ export const MainTextLayout = ({
   icon,
   iconRight,
   linkHome
-}: PropsLogin) => {
+}: DividedTextLayoutProps) => {
   return (
     <>
       <S.Title>{title}</S.Title>

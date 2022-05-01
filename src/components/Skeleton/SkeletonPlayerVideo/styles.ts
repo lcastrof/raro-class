@@ -8,16 +8,16 @@ export const Container = styled.div`
 export const LeftSide = styled.aside`
   display: flex;
   flex-direction: column;
-  padding-left: ${({ theme }) => theme.spacing.xxlarge};
+  width: 100%;
 `;
 export const CardContentVideo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 `;
 export const PlayerVideo = styled.div`
-  width: 95rem;
-  height: 40rem;
+  width: 100%;
+  height: 65rem;
   background-image: linear-gradient(
     -90deg,
     #e7edf1 0%,

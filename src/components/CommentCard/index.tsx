@@ -1,4 +1,5 @@
 import * as S from './styles';
+import { Comment } from '../../pages/VideoClass';
 import {
   AiOutlineLike,
   AiOutlineDislike,
@@ -8,83 +9,104 @@ import {
 
 import api from '../../services/api';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useAuth } from '../../store/auth';
+import { formataDateTime } from '../../helpers/date';
 
 type CommentCardProps = {
-  avatar: string;
-  userName: string;
-  userComment: string[];
-  upVotes: number;
-  downVotes: number;
-  video: string;
-  commentId: string;
+  comment: Comment;
+  videoId: string;
 };
 
-export const CommentCard = ({
-  avatar,
-  userName,
-  userComment,
-  upVotes,
-  downVotes,
-  video,
-  commentId
-}: CommentCardProps) => {
-  const [iconUp, setIconUp] = useState(false);
-  const [iconDown, setIconDown] = useState(false);
+export const CommentCard = ({ comment, videoId }: CommentCardProps) => {
+  const {
+    id: commentId,
+    aluno,
+    downVotes,
+    upVotes,
+    texto,
+    meuVote,
+    createdAt
+  } = comment;
+  const { isAuthenticated } = useAuth();
 
-  function handleLike() {
-    if (iconDown) {
-      setIconDown(false);
-      api.delete(`/videos/${video}/comentarios/${commentId}/votes`);
+  const [isLiked, setIsLiked] = useState(meuVote?.vote === 'up');
+  const [isDisliked, setIsDisliked] = useState(meuVote?.vote === 'down');
+
+  const [totalUpVotes, setTotalUpVotes] = useState(upVotes);
+  const [totalDownVotes, setTotalDownVotes] = useState(downVotes);
+
+  const handleLike = async () => {
+    try {
+      if (isLiked) {
+        setTotalUpVotes((prevVotes) => prevVotes - 1);
+        setIsLiked(false);
+        await api.delete(`/videos/${videoId}/comentarios/${commentId}/votes`);
+        return;
+      }
+      if (isDisliked) {
+        setTotalDownVotes((prevVotes) => prevVotes - 1);
+      }
+      setTotalUpVotes((prevVotes) => prevVotes + 1);
+      setIsLiked(true);
+      setIsDisliked(false);
+      await api.put(`/videos/${videoId}/comentarios/${commentId}/votes`, {
+        vote: 'up'
+      });
+    } catch (err) {
+      console.log({ err });
+      toast.error('Erro ao computar seu upvote');
     }
-    {
-      !iconUp ? setIconUp(true) : setIconUp(false);
-    }
-  }
-  {
-    !iconDown && iconUp
-      ? api.put(`/videos/${video}/comentarios/${commentId}/votes`, {
-          vote: 'up'
-        })
-      : api.delete(`/videos/${video}/comentarios/${commentId}/votes`);
-  }
+  };
 
   async function handleDislike() {
-    if (iconUp) {
-      setIconUp(false);
-      api.delete(`/videos/${video}/comentarios/${commentId}/votes`);
+    try {
+      if (isDisliked) {
+        setTotalDownVotes((prevVotes) => prevVotes - 1);
+        setIsDisliked(false);
+        await api.delete(`/videos/${videoId}/comentarios/${commentId}/votes`);
+        return;
+      }
+      if (isLiked) {
+        setTotalUpVotes((prevVotes) => prevVotes - 1);
+      }
+      setTotalDownVotes((prevVotes) => prevVotes + 1);
+      setIsDisliked(true);
+      setIsLiked(false);
+      await api.put(`/videos/${videoId}/comentarios/${commentId}/votes`, {
+        vote: 'down'
+      });
+    } catch (err) {
+      console.log({ err });
+      toast.error('Erro ao computar seu downvote');
     }
-    {
-      !iconDown ? setIconDown(true) : setIconDown(false);
-    }
-  }
-  {
-    !iconUp && iconDown
-      ? api.put(`/videos/${video}/comentarios/${commentId}/votes`, {
-          vote: 'down'
-        })
-      : api.delete(`/videos/${video}/comentarios/${commentId}/votes`);
   }
 
   return (
     <S.Container>
-      <S.Avatar src={avatar} alt="imagem de perfil do usuário" />
+      <S.Avatar src={aluno.foto} alt="imagem de perfil do usuário" />
       <S.Info>
-        <S.UserName>{userName}</S.UserName>
-        <S.Comment>{userComment}</S.Comment>
-        <S.ReactComment>
-          <p onClick={handleLike}>
-            {iconUp ? <AiFillLike size={20} /> : <AiOutlineLike size={20} />}
-            {upVotes}
-          </p>
-          <p onClick={handleDislike}>
-            {iconDown ? (
-              <AiFillDislike size={20} />
-            ) : (
-              <AiOutlineDislike size={20} />
-            )}
-            {downVotes}
-          </p>
-        </S.ReactComment>
+        <S.TitleWrapper>
+          <S.UserName>{aluno.nome}</S.UserName>
+          <S.CommentDate>{formataDateTime(createdAt)}</S.CommentDate>
+        </S.TitleWrapper>
+        <S.Comment>{texto}</S.Comment>
+        {isAuthenticated ? (
+          <S.ReactComment>
+            <button onClick={handleLike}>
+              {isLiked ? <AiFillLike size={20} /> : <AiOutlineLike size={20} />}
+              {totalUpVotes}
+            </button>
+            <button onClick={handleDislike}>
+              {isDisliked ? (
+                <AiFillDislike size={20} />
+              ) : (
+                <AiOutlineDislike size={20} />
+              )}
+              {totalDownVotes}
+            </button>
+          </S.ReactComment>
+        ) : null}
       </S.Info>
     </S.Container>
   );

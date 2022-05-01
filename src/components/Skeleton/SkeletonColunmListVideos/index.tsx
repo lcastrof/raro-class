@@ -3,10 +3,9 @@ import * as S from './styles';
 export const SkeletonColunmListVideos = () => {
   return (
     <S.RightSide>
-      <S.NextVideoCard />
-      <S.NextVideoCard />
-      <S.NextVideoCard />
-      <S.NextVideoCard />
+      {[...Array(10)].map((_, i) => (
+        <S.NextVideoCard key={i} />
+      ))}
     </S.RightSide>
   );
 };

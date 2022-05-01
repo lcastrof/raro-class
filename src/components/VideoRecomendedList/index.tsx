@@ -1,9 +1,9 @@
-import { InfoVideoClass } from '../../pages/VideoClass';
+import { Video } from '../../types/Video';
 import { CardLinkClass } from '../CardLinkClass';
 import * as S from './styles';
 
 type VideoRecomendedListProps = {
-  videoRecomended: InfoVideoClass[];
+  videoRecomended: Video[];
 };
 
 export const VideoRecomendedList = ({

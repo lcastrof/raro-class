@@ -1,10 +1,7 @@
+import { Outlet } from 'react-router-dom';
 import * as S from './styles';
 
-type PageMainProps = {
-  children: React.ReactNode;
-};
-
-export const PageMain = ({ children }: PageMainProps) => {
+export const DividedLayout = () => {
   return (
     <S.Page>
       <S.SideLeft>
@@ -14,7 +11,9 @@ export const PageMain = ({ children }: PageMainProps) => {
         />
       </S.SideLeft>
       <S.SideRight>
-        <S.MainContent>{children}</S.MainContent>
+        <S.MainContent>
+          <Outlet />
+        </S.MainContent>
       </S.SideRight>
     </S.Page>
   );
