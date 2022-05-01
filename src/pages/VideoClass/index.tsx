@@ -8,6 +8,7 @@ import DivideLine from '../../components/DivideLine';
 import { CommentList } from '../../components/CommentsList';
 import { VideoRecomendedList } from '../../components/VideoRecomendedList';
 import { SkeletonColunmListVideos } from '../../components/Skeleton/SkeletonColunmListVideos';
+import { CardCommentInput } from '../../components/CardCommentInput';
 
 export type InfoVideoClass = {
   id: string;
@@ -134,7 +135,8 @@ export const VideoClass = () => {
             </S.WrapInfo>
           </S.ContainerPLayerVideo>
           <DivideLine />
-          <CommentList comments={comments} />
+          <CardCommentInput videoId={id as string} />
+          <CommentList comments={comments} videoId={id as string} />
         </S.ContainerLeft>
       </S.Container>
       <S.ContainerRight>
