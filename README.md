@@ -101,12 +101,123 @@ ___
 
 ## 🛠 Linguagens e ferramentas
 
-- [React JS](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Git](https://git-scm.com/) e  [GitHub](https://github.com/)
-- [HTML 5](https://www.w3schools.com/html/)
-- [CSS 3](https://www.w3schools.com/css/)
-- [Figma](https://www.figma.com/)
+<br/>
+<table>
+  <tr>
+    <td align="center"><a href="https://reactjs.org/">
+      <img src="https://ionicframework.com/docs/icons/logo-react-icon.png" width="40px;" alt="logo react js"/>
+      <br />
+      <sub>
+        <b>React JS</b>
+      </sub>
+      </a>
+    </td>
+    <td align="center"><a href="https://www.typescriptlang.org/">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1024px-Typescript_logo_2020.svg.png" width="40px;" alt="logo typescript"/>
+      <br />
+      <sub>
+        <b>TypeScript</b>
+      </sub>
+      </a>
+    </td>
+    <td align="center"><a href="https://git-scm.com/">
+      <img src="https://3.bp.blogspot.com/-xhNpNJJyQhk/XIe4GY78RQI/AAAAAAAAItc/ouueFUj2Hqo5dntmnKqEaBJR4KQ4Q2K3ACK4BGAYYCw/s1600/logo%2Bgit%2Bicon.png" width="40px;" alt="logo git"/>
+      <br />
+      <sub>
+        <b>Git</b>
+      </sub>
+      </a>
+    </td>
+    <td align="center"><a href="https://github.com/">
+      <img src="https://icones.pro/wp-content/uploads/2021/06/icone-github-noir.png" width="40px;" alt="logo github"/>
+      <br />
+      <sub>
+        <b>GitHub</b>
+      </sub>
+      </a>
+    </td>
+  </tr>
+  </table>
+  <br/>
+  <table>
+  <tr>
+    <td align="center">
+      <a href="https://typicode.github.io/husky/#/">🐶<br />
+        <sub>
+          <b>husky</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center"><a href="https://eslint.org/">
+      <img  src="https://d33wubrfki0l68.cloudfront.net/204482ca413433c80cd14fe369e2181dd97a2a40/092e2/assets/img/logo.svg" width="30px;" alt="logo eslint"/>
+      <br />
+      <sub>
+        <b>Eslint</b>
+      </sub>
+      </a>
+    </td>
+    <td align="center"><a href="https://v5.reactrouter.com/web/guides/quick-start">
+      <img src="https://iconape.com/wp-content/files/sm/371377/svg/371377.svg" width="40px;" alt="logo react router"/>
+      <br />
+      <sub>
+        <b>React Router</b>
+      </sub>
+      </a>
+    </td>
+    <td align="center"><a href="https://axios-http.com/ptbr/">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Axios_%28computer_library%29_logo.svg/1280px-Axios_%28computer_library%29_logo.svg.png" width="65px;" alt="logo axios"/>
+      <br />
+      <sub>
+        <b>Axios</b>
+      </sub>
+      </a>
+    </td>
+  <td align="center"><a href="https://zustand.surge.sh/">
+      <img src="https://repository-images.githubusercontent.com/180328715/fca49300-e7f1-11ea-9f51-cfd949b31560" width="50px;" alt="logo zustand"/>
+    <br />
+    <sub>
+      <b>Zustand</b>
+    </sub>
+    </a>
+    </td>
+  </tr>
+</table>
+<br/>
+<table border-style="none">
+  <tr>
+    <td align="center"><a href="https://styled-components.com/">
+      <img src="https://miro.medium.com/max/318/1*7jRD5QhgARucFKvRHFxpOg.png" width="50px;" alt="logo styled components"/>
+      <br />
+      <sub>
+        <b>Styled<br/>Components</b>
+      </sub>
+      </a>
+    </td>
+    <td align="center"><a href="https://www.w3schools.com/css/">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CSS.3.svg/1200px-CSS.3.svg.png" width="30px;" alt="logo css 3"/>
+      <br />
+      <sub>
+        <b>CSS 3</b>
+      </sub>
+      </a>
+    </td>
+    <td align="center"><a href="https://www.w3schools.com/html/">
+      <img src="https://i.stack.imgur.com/PgcSR.png" width="40px;" alt="logo html 5"/><br />
+      <sub>
+        <b>HTML 5</b>
+      </sub>
+      </a>
+    </td>
+    <td align="center"><a href="https://www.figma.com/">
+      <img src="https://user-images.githubusercontent.com/11142312/166157032-4380b84e-14a5-4670-8b61-b6c2709f45db.png" width="25px;" alt="logo figma"/>
+      <br />
+      <sub>
+        <b>Figma</b>
+      </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 <p align="right"><a href="#top">▲ Topo do site</a></p>
 <div id="como-executar-o-projeto"></div>
@@ -178,12 +289,12 @@ ___
 **Projeto desenvolvido** com carinho no final do **Curso de React JS_2022**, pelo grupo  "Na minha máquina funciona", composto **pelos alunos:**
 
 <br/>
-<table align="center" border-style="none" class="markdown-body">
+<table align="center" border-style="none">
   <tr>
-    <td align="center"><a href="https://github.com/Denis-araujo"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59769961?v=4" width="100px;" alt=""/><br /><sub><b>Denis Gomes</b></sub></a></td>
-    <td align="center"><a href="https://github.com/Evanildo-Silva"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/98241842?v=4" width="100px;" alt=""/><br /><sub><b>Evanildo Silva</b></sub></a></td>
-    <td align="center"><a href="https://github.com/franzitaz"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/11142312?v=4" width="100px;" alt=""/><br /><sub><b>Francielle Zucolota</b></sub></a></td>
-    <td align="center"><a href="https://github.com/lcastrof"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/52727513?v=4" width="100px;" alt=""/><br /><sub><b>Lucas Castro</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Denis-araujo"><img src="https://avatars.githubusercontent.com/u/59769961?v=4" width="100px;" alt=""/><br /><sub><b>Denis Gomes</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Evanildo-Silva"><img src="https://avatars.githubusercontent.com/u/98241842?v=4" width="100px;" alt=""/><br /><sub><b>Evanildo Silva</b></sub></a></td>
+    <td align="center"><a href="https://github.com/franzitaz"><img src="https://avatars.githubusercontent.com/u/11142312?v=4" width="100px;" alt=""/><br /><sub><b>Francielle Zucolota</b></sub></a></td>
+    <td align="center"><a href="https://github.com/lcastrof"><img src="https://avatars.githubusercontent.com/u/52727513?v=4" width="100px;" alt=""/><br /><sub><b>Lucas Castro</b></sub></a></td>
   </tr>
 </table>
 
