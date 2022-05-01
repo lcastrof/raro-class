@@ -1,6 +1,6 @@
 <!--Banner do site Raro Class-->
 <h1 align="center">
-    <img src="./public/assets/art/artBannerReadme.png" alt="Banner Raro Class/Raro Academy"  />
+    <img src="./public/assets/art/artBannerReadme.svg" alt="Banner Raro Class/Raro Academy"  />
 </h1>
 
 <!-- Sumário / Âncora -->
