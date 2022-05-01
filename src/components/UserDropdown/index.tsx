@@ -11,6 +11,10 @@ export const UserDropdown = () => {
     navigate('/');
   };
 
+  const handleGoHome = () => {
+    navigate('/');
+  };
+
   return (
     <S.Container>
       <S.UserPicture src={user?.foto} alt={`Foto de ${user?.nome}`} />
@@ -18,6 +22,9 @@ export const UserDropdown = () => {
         <S.UserName>{user?.nome}</S.UserName>
         <S.UserEmail>{user?.email}</S.UserEmail>
       </S.UserInfo>
+      <S.ActionsMenuLeft>
+        <S.ActionItemLeft onClick={handleGoHome}>Home</S.ActionItemLeft>
+      </S.ActionsMenuLeft>
       <S.ActionsMenu>
         <S.ActionItem onClick={handleLogout}>Logout</S.ActionItem>
       </S.ActionsMenu>
