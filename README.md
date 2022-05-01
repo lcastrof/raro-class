@@ -1,8 +1,51 @@
+<!--Banner do site Raro Class-->
 <h1 align="center">
-    <img src="./assets/art/artBannerReadme.png" alt="Banner Raro Class/Raro Academy"  />
+    <img src="./public/assets/art/artBannerReadme.png" alt="Banner Raro Class/Raro Academy"  />
 </h1>
 
-## 💻 Sobre o projeto RaroClass
+<!-- Sumário / Âncora -->
+<details>
+  <summary>Sumário:</summary>
+  <ol style='list-style: disc;'>
+    <li>
+      <a href="#sobre-o-projeto"> Sobre o projeto</a>
+    </li>
+    <li>
+      <a href="#layout">Layout</a>
+    </li>
+      <ul>
+        <li>
+        <a href="#layout">Website</a>
+        </li>
+      </ul>
+    <li>
+      <a href="#linguagens-e-ferramentas">Linguagens e Ferramentas</a>
+    </li>
+    </ul>
+    <li>
+      <a href="#desenvolvedores">Desenvolvedores</a>
+    </li>
+    <li>
+      <a href="#como-executar-o-projeto">Como executar o projeto</a>
+    </li>
+    <li>
+      <a href="#contact">Agradecimentos</a>
+    </li>
+    <li>
+      <a href="#acknowledgments">Acknowledgments</a>
+    </li>
+  </ol>
+</details>
+
+<!-- <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul> -->
+
+
+<!--Sobre o projeto Raro Class-->
+## 💻 Sobre o projeto
 
 A **Raro Class** é uma plataforma digital onde ficam disponibilizadas as **aulas gravadas** pela **Raro Academy**, de forma **online** e com um ambiente agradável para o aluno.
 
@@ -37,13 +80,13 @@ O layout da aplicação está disponível no Figma:
 ## Website
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Imagem da tela de login do site Raro Class" src="./assets/art/screenshotLogin.png" width="400px">
+  <img alt="Imagem da tela de login do site Raro Class" src="./public/assets/art/screenshotLogin.png" width="500px">
 
-  <img alt="NextLevelWeek" src="./assets/sucesso-web.svg" width="400px">
+  <!--<img alt="Imagem da página inicial da Raro Class" src="./assets/sucesso-web.svg" width="400px">-->
 </p>
 
 
-## 🛠 Linguagens e ferramentas usadas:
+## 🛠 Linguagens e ferramentas
 
 <p align="left">
   <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
@@ -62,6 +105,9 @@ O layout da aplicação está disponível no Figma:
   <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer">  
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
   </a>
+  <a href="https://react-icons.github.io/react-icons" target="_blank">
+    <img src="https://rawgit.com/gorangajic/react-icons/master/react-icons.svg" width="30" alt="React Icons" />
+  </a>
    <a href="https://www.figma.com/" target="_blank" rel="noreferrer">
     <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/>
   </a>
@@ -74,12 +120,16 @@ O layout da aplicação está disponível no Figma:
 
 
 
-___
 
-👨‍💻 **Projeto desenvolvido** com carinho no final do **Curso de React JS - 2022**, pelo grupo  "Na minha máquina funciona", composta pelos alunos:
+
+## 👨‍💻 Desenvolvedores
+
+**Projeto desenvolvido** com carinho no final do **Curso de React JS_2022**, pelo grupo  "Na minha máquina funciona", composto pelos alunos:
 
 [Denis Gomes](https://github.com/Denis-araujo), [Evanildo Silva](https://github.com/Evanildo-Silva), [Francielle Zucolota](https://github.com/franzitaz) e [Lucas Castro](https://github.com/lcastrof).
 
+
+## 🙏💙 Agradecimentos
 
 
 # Getting Started with Create React App
