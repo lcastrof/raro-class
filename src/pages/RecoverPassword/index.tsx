@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import * as S from './styles';
 
-export const RecuperarSenha = () => {
+export const RecoverPassword = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const navigate = useNavigate();
@@ -45,14 +45,15 @@ export const RecuperarSenha = () => {
   return (
     <PageMain>
       <MainTextLayout
-        title="Mude sua senha"
+        title="Digite o seu e-mail"
+        subTitle="para receber um código"
         linkparagrafo1={{
           url: '/login',
-          text: 'fazer login'
+          text: 'Fazer login'
         }}
         linkparagrafo2={{
           url: '/novasenha',
-          text: 'já tenho o código'
+          text: 'Já tenho o código'
         }}
         icon={<MdKeyboardArrowLeft size={18} />}
         iconRight={<MdKeyboardArrowRight size={18} />}

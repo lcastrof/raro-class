@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MainLayout } from '../layouts/MainLayout';
-import { Cadastro } from '../pages/Cadastro';
+import { Register } from '../pages/Register';
 import { Home } from '../pages/Home';
 import { Login } from '../pages/Login';
 import NotFound from '../pages/NotFound';
-import { NovaSenha } from '../pages/NovaSenha';
-import { RecuperarSenha } from '../pages/RecuperarSenha';
+import { NewPassword } from '../pages/NewPassword';
+import { RecoverPassword } from '../pages/RecoverPassword';
 import { VideoClass } from '../pages/VideoClass';
 
 export const AppRoutes = () => {
@@ -18,9 +18,9 @@ export const AppRoutes = () => {
           <Route path="/video/:id" element={<VideoClass />} />
         </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/novasenha" element={<NovaSenha />} />
-        <Route path="/recuperarsenha" element={<RecuperarSenha />} />
+        <Route path="/cadastro" element={<Register />} />
+        <Route path="/novasenha" element={<NewPassword />} />
+        <Route path="/recuperarsenha" element={<RecoverPassword />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
