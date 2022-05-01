@@ -29,7 +29,7 @@ export const Home = () => {
   );
 
   const [loadingClasses, setLoadingClasses] = useState(true);
-  const [loadingClassesFilter, setLoadingClassesFilter] = useState(true);
+  const [loadingClassesFilter, setLoadingClassesFilter] = useState(false);
 
   const { isAuthenticated } = useAuth();
   const { fetchFavorites } = useFavorites();
@@ -79,7 +79,7 @@ export const Home = () => {
   useEffect(() => {
     if (!classesFilters) return;
     const filterClasses = async () => {
-      setLoadingClassesFilter(false);
+      setLoadingClassesFilter(true);
       try {
         const filteredData = await getClasses({ filters: classesFilters });
         setClasses(filteredData);
