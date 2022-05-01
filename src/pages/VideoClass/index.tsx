@@ -11,6 +11,7 @@ import { SkeletonColunmListVideos } from '../../components/Skeleton/SkeletonColu
 import { formataDate } from '../../helpers/date';
 import { FavoriteButton } from '../../components/FavoriteButton';
 import { Video } from '../../types/Video';
+import { useAuth } from '../../store/auth';
 
 type Aluno = {
   id: string;
@@ -39,17 +40,19 @@ export const VideoClass = () => {
 
   const [comments, setComments] = useState<Comment[]>([]);
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const { id } = useParams();
+
+  const { isAuthenticated } = useAuth();
 
   const [videoUrl, setVideoUrl] = useState();
   const [videoThumbnail, setVideoThumbnail] = useState();
   const [videoApi, setVideoApi] = useState<Video>();
-  console.log({ videoApi });
 
   useEffect(() => {
     async function loadVideo() {
+      setLoading(true);
       const response = await api.get(`/videos/${id}`);
       setVideoUrl(response.data.url);
       setVideoThumbnail(response.data.thumbUrl);
@@ -62,10 +65,12 @@ export const VideoClass = () => {
 
   useEffect(() => {
     async function getCommentsAndRecommended() {
+      setLoading(true);
       const responseComments = await api.get(`/videos/${id}/comentarios`);
       setComments(responseComments.data);
       const responseRecommended = await api.get(`/videos/${id}/recomendacoes`);
       setRecommendedVideos(responseRecommended.data);
+      setLoading(false);
     }
 
     getCommentsAndRecommended();
@@ -117,7 +122,7 @@ export const VideoClass = () => {
             }
           />
           <S.WrapInfo>
-            {videoApi ? (
+            {videoApi && isAuthenticated ? (
               <S.Star>
                 <FavoriteButton video={videoApi} defaultColor="primary" />
               </S.Star>
@@ -135,7 +140,9 @@ export const VideoClass = () => {
         <CommentList comments={comments} />
       </S.ContainerLeft>
       <S.ContainerRight>
-        <S.TitleRecommended>Vídeos Recomendados</S.TitleRecommended>
+        <S.TitleRecommended>
+          <p>Vídeos Recomendados</p>
+        </S.TitleRecommended>
         <VideoRecomendedList videoRecomended={recommendedVideos} />
       </S.ContainerRight>
     </S.Container>

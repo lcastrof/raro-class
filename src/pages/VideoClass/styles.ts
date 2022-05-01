@@ -23,7 +23,6 @@ export const WrapInfo = styled.div`
 
 export const Star = styled.div`
   padding-left: 2.5rem;
-  padding-right: 1.5rem;
 `;
 
 export const StarButton = styled.div`
@@ -31,7 +30,6 @@ export const StarButton = styled.div`
   justify-content: center;
   align-items: center;
   width: 4rem;
-  margin-left: -${({ theme }) => theme.spacing.small};
   margin-top: ${({ theme }) => theme.spacing.xxsmall};
 
   ${({ theme }) => css`
@@ -57,6 +55,7 @@ export const WrapTitleDescription = styled.div`
     display: flex;
     flex-direction: column;
     gap: ${theme.spacing.xsmall};
+    padding-left: ${theme.spacing.medium};
 
     h1 {
       color: ${theme.colors.primary};
@@ -93,17 +92,28 @@ export const ContainerLeft = styled.div`
 `;
 
 export const ContainerRight = styled.div`
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+  align-self: flex-start;
   background: #fbfbfe;
   box-shadow: -4px 0px 20px rgb(0 0 0 / 10%);
 `;
 
 export const TitleRecommended = styled.div`
   ${({ theme }) => css`
-    text-align: center;
-    background-color: #dadada;
     color: ${theme.colors.primary};
-    font-size: ${theme.font.sizes.small};
-    font-weight: ${theme.font.weight.semiBold};
     padding: ${theme.spacing.medium};
+
+    > p {
+      text-align: center;
+      font-weight: ${theme.font.weight.semiBold};
+      font-size: ${theme.font.sizes.small};
+
+      padding: ${theme.spacing.medium};
+      box-shadow: ${theme.boxShadow.input};
+      border-radius: ${theme.border.radius.medium};
+    }
   `}
 `;
