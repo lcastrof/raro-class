@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const ContainerPLayerVideo = styled.div`
-  flex: 1;
-  .react-player > div {
+  .react-player > .react-player__preview {
     background-repeat: no-repeat;
     background-size: contain !important;
     background-color: #000;
@@ -91,7 +90,7 @@ export const ContainerLeft = styled.div`
   padding-bottom: ${({ theme }) => theme.spacing.xxlarge};
 `;
 
-export const ContainerRight = styled.div`
+export const ContainerRight = styled.aside`
   position: sticky;
   top: 0;
   height: 100vh;

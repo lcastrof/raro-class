@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import api from '../../services/api';
 import * as S from './styles';
 import { SkeletonPlayerVideo } from '../../components/Skeleton/SkeletonPlayerVideo';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import DivideLine from '../../components/DivideLine';
 import { CommentList } from '../../components/CommentsList';
@@ -12,6 +12,8 @@ import { formataDate } from '../../helpers/date';
 import { FavoriteButton } from '../../components/FavoriteButton';
 import { Video } from '../../types/Video';
 import { useAuth } from '../../store/auth';
+import { CardCommentInput } from '../../components/CardCommentInput';
+import { toast } from 'react-toastify';
 
 type Aluno = {
   id: string;
@@ -33,60 +35,80 @@ export type Comment = {
     vote: 'up' | 'down';
     aluno: Aluno;
   };
+  createdAt: string;
 };
+
+export const LoadingVideoPage = () => (
+  <S.Container>
+    <S.ContainerLeft>
+      <S.ContainerPLayerVideo>
+        <SkeletonPlayerVideo />
+      </S.ContainerPLayerVideo>
+    </S.ContainerLeft>
+    <S.ContainerRight>
+      <SkeletonColunmListVideos />
+    </S.ContainerRight>
+  </S.Container>
+);
 
 export const VideoClass = () => {
   const [recommendedVideos, setRecommendedVideos] = useState<Video[]>([]);
-
   const [comments, setComments] = useState<Comment[]>([]);
-
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
   const { id } = useParams();
-
   const { isAuthenticated } = useAuth();
 
   const [videoUrl, setVideoUrl] = useState();
   const [videoThumbnail, setVideoThumbnail] = useState();
   const [videoApi, setVideoApi] = useState<Video>();
 
-  useEffect(() => {
-    async function loadVideo() {
-      setLoading(true);
-      const response = await api.get(`/videos/${id}`);
-      setVideoUrl(response.data.url);
-      setVideoThumbnail(response.data.thumbUrl);
-      setVideoApi(response.data);
-      setLoading(false);
-    }
+  const handleComment = (comment: Comment) => {
+    setComments([...comments, comment]);
+  };
 
-    loadVideo();
+  const loadVideoInfo = useCallback(async () => {
+    const response = await api.get(`/videos/${id}`);
+    setVideoUrl(response.data.url);
+    setVideoThumbnail(response.data.thumbUrl);
+    setVideoApi(response.data);
   }, [id]);
 
-  useEffect(() => {
-    async function getCommentsAndRecommended() {
-      setLoading(true);
-      const responseComments = await api.get(`/videos/${id}/comentarios`);
-      setComments(responseComments.data);
-      const responseRecommended = await api.get(`/videos/${id}/recomendacoes`);
-      setRecommendedVideos(responseRecommended.data);
-      setLoading(false);
-    }
-
-    getCommentsAndRecommended();
+  const loadComments = useCallback(async () => {
+    const responseComments = await api.get(`/videos/${id}/comentarios`);
+    setComments(responseComments.data);
+  }, [id]);
+  const loadRecommended = useCallback(async () => {
+    const responseRecommended = await api.get(`/videos/${id}/recomendacoes`);
+    setRecommendedVideos(responseRecommended.data);
   }, [id]);
 
-  if (loading) {
-    return (
-      <S.Container>
-        <S.ContainerPLayerVideo>
-          <SkeletonPlayerVideo />
-        </S.ContainerPLayerVideo>
-        <S.ContainerRight>
-          <SkeletonColunmListVideos />
-        </S.ContainerRight>
-      </S.Container>
-    );
+  const loadData = useCallback(async () => {
+    setLoading(true);
+    try {
+      await loadVideoInfo();
+      await loadRecommended();
+      await loadComments();
+    } catch (err) {
+      console.log({ err });
+      if (err.response.status === 404) {
+        toast.error(
+          'Video não encontrado ou você não tem permissão para acessá-lo'
+        );
+        navigate('/');
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, [loadComments, loadRecommended, loadVideoInfo, navigate]);
+
+  useEffect(() => {
+    loadData();
+  }, [loadData]);
+
+  if (loading || !videoApi) {
+    return <LoadingVideoPage />;
   }
 
   return (
@@ -137,7 +159,10 @@ export const VideoClass = () => {
           </S.WrapInfo>
         </S.ContainerPLayerVideo>
         <DivideLine />
-        <CommentList comments={comments} videoId={videoApi?.id as string} />
+        {isAuthenticated ? (
+          <CardCommentInput videoId={videoApi.id} onComment={handleComment} />
+        ) : null}
+        <CommentList comments={comments} videoId={videoApi.id} />
       </S.ContainerLeft>
       <S.ContainerRight>
         <S.TitleRecommended>
