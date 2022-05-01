@@ -4,9 +4,10 @@ import * as S from './styles';
 
 type CommentListProps = {
   comments: Comment[];
+  videoId: string;
 };
 
-export const CommentList = ({ comments }: CommentListProps) => {
+export const CommentList = ({ comments, videoId }: CommentListProps) => {
   if (comments.length === 0) {
     return (
       <S.ContainerCommentList>
@@ -27,8 +28,8 @@ export const CommentList = ({ comments }: CommentListProps) => {
           userComment={commentsItems.texto}
           upVotes={commentsItems.upVotes}
           downVotes={commentsItems.downVotes}
-          video={commentsItems.id}
-          commentId={commentsItems.aluno.id}
+          video={videoId}
+          commentId={commentsItems.id}
         />
       ))}
     </S.ContainerCommentList>

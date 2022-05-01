@@ -36,20 +36,28 @@ export const MainTextLayout = ({
       <S.SubTitle>{subTitle}</S.SubTitle>
       <S.ListInputs>{children}</S.ListInputs>
       <S.LinksParagrafo>
-        <Link to={linkparagrafo1.url}>
-          {icon}
-          {linkparagrafo1.text}
-        </Link>
-        {linkparagrafo2 ? (
-          <Link to={linkparagrafo2?.url as string}>
-            {linkparagrafo2?.text}
-            {iconRight}
+        <S.LinkParagrafo1>
+          <Link to={linkparagrafo1.url}>
+            {icon}
+            {linkparagrafo1.text}
           </Link>
+        </S.LinkParagrafo1>
+        {linkparagrafo2 ? (
+          <S.LinkParagrafo2>
+            <Link to={linkparagrafo2?.url as string}>
+              {linkparagrafo2?.text}
+              {iconRight}
+            </Link>
+          </S.LinkParagrafo2>
         ) : null}
       </S.LinksParagrafo>
       <S.Footer>
         {linkHome}
-        <S.FooterText1>Termos de Uso • Política de Privacidade</S.FooterText1>
+        <S.FooterText1>
+          <a href="#">Termos de Uso</a>
+          <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+          <a href="#">Política de Privacidade</a>
+        </S.FooterText1>
         <S.FooterText2>© 2022 Raro Labs</S.FooterText2>
       </S.Footer>
     </>

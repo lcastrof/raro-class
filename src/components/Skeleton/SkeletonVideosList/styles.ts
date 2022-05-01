@@ -64,7 +64,7 @@ export const Main = styled.div`
 export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 `;
 export const CardVideo = styled.div`
   width: 30rem;
@@ -92,6 +92,29 @@ export const CardVideo = styled.div`
 `;
 export const TitleVideo = styled.div`
   width: 28rem;
+  height: 1.9rem;
+  margin-top: 0.5rem;
+  border-radius: 2.5rem;
+  background-image: linear-gradient(
+    -90deg,
+    #e7edf1 0%,
+    #dfdfdf 50%,
+    #e7edf1 100%
+  );
+  background-size: 400% 400%;
+  animation: shimmer 1.2s ease-in-out infinite;
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: -135% 0%;
+    }
+  }
+`;
+export const VideoData = styled.div`
+  width: 10rem;
   height: 1.9rem;
   margin-top: 0.5rem;
   border-radius: 2.5rem;

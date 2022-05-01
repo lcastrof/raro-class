@@ -2,17 +2,16 @@ import { useState } from 'react';
 import * as S from './styles';
 
 import api from '../../services/api';
+import { useAuth } from '../../store/auth';
 
 type PropsCardCommentInput = {
   videoId: string;
-  avatar: string;
 };
 
-export const CardCommentInput = ({
-  videoId,
-  avatar
-}: PropsCardCommentInput) => {
+export const CardCommentInput = ({ videoId }: PropsCardCommentInput) => {
   const [query, setQuery] = useState('');
+
+  const { user } = useAuth();
 
   function SendComment() {
     api.post(`/videos/${videoId}/comentarios/`, {
@@ -24,7 +23,7 @@ export const CardCommentInput = ({
   return (
     <S.Container>
       <S.UserCard>
-        <S.Avatar src={avatar} alt="Foto do usuário" />
+        <S.Avatar src={user?.foto} alt="Foto do usuário" />;
         <S.Input
           onChange={(event) => setQuery(event.target.value)}
           value={query}

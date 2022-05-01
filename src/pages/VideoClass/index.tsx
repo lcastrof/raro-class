@@ -137,7 +137,7 @@ export const VideoClass = () => {
           </S.WrapInfo>
         </S.ContainerPLayerVideo>
         <DivideLine />
-        <CommentList comments={comments} />
+        <CommentList comments={comments} videoId={videoApi?.id as string} />
       </S.ContainerLeft>
       <S.ContainerRight>
         <S.TitleRecommended>

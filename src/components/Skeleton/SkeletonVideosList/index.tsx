@@ -19,14 +19,17 @@ export const SkeletonVideosList: React.FC<SkeletonVideosListprops> = ({
         <S.CardContent>
           <S.CardVideo />
           <S.TitleVideo />
+          <S.VideoData />
         </S.CardContent>
         <S.CardContent>
           <S.CardVideo />
           <S.TitleVideo />
+          <S.VideoData />
         </S.CardContent>
         <S.CardContent>
           <S.CardVideo />
           <S.TitleVideo />
+          <S.VideoData />
         </S.CardContent>
       </S.Main>
     </S.Container>
