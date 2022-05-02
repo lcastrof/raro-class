@@ -25,7 +25,7 @@ export const Register: React.FC = () => {
       .string()
       .required('Campo obrigatório')
       .oneOf([yup.ref('senha')], 'As senhas devem ser iguais'),
-    codigo: yup.string().required('Campo obrigatório')
+    codigoAcesso: yup.string().required('Campo obrigatório')
   });
 
   const { register, handleSubmit, formState } = useForm({
@@ -37,8 +37,13 @@ export const Register: React.FC = () => {
   const handleRegister = async (userData: FieldValues) => {
     try {
       setErrorMessage('');
-      const { nome, email, senha, codigo } = userData;
-      await api.post('/auth/cadastrar', { nome, email, senha, codigo });
+      const { nome, email, senha, codigoAcesso } = userData;
+      await api.post('/auth/cadastrar', {
+        nome,
+        email,
+        senha,
+        codigoAcesso
+      });
       toast.success('Usuário cadastrado com sucesso!');
       navigate('/login');
     } catch (err) {
@@ -99,9 +104,9 @@ export const Register: React.FC = () => {
           type="password"
         />
         <Input
-          name="codigo"
+          name="codigoAcesso"
           register={register}
-          errors={errors.codigo}
+          errors={errors.codigoAcesso}
           placeholder="Código da Turma"
         />
       </form>
