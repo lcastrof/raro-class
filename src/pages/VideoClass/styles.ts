@@ -24,6 +24,12 @@ export const Star = styled.div`
   padding-left: 2.5rem;
 `;
 
+export const PlayIcon = styled.img`
+  padding-left: 2.5rem;
+  padding-top: 0.5rem;
+  align-self: flex-start;
+`;
+
 export const StarButton = styled.div`
   display: flex;
   justify-content: center;
