@@ -91,22 +91,20 @@ export const CommentCard = ({ comment, videoId }: CommentCardProps) => {
           <S.CommentDate>{formataDateTime(createdAt)}</S.CommentDate>
         </S.TitleWrapper>
         <S.Comment>{texto}</S.Comment>
-        {isAuthenticated ? (
-          <S.ReactComment>
-            <button onClick={handleLike}>
-              {isLiked ? <AiFillLike size={20} /> : <AiOutlineLike size={20} />}
-              {totalUpVotes}
-            </button>
-            <button onClick={handleDislike}>
-              {isDisliked ? (
-                <AiFillDislike size={20} />
-              ) : (
-                <AiOutlineDislike size={20} />
-              )}
-              {totalDownVotes}
-            </button>
-          </S.ReactComment>
-        ) : null}
+        <S.ReactComment>
+          <button onClick={handleLike} disabled={!isAuthenticated}>
+            {isLiked ? <AiFillLike size={20} /> : <AiOutlineLike size={20} />}
+            {totalUpVotes}
+          </button>
+          <button onClick={handleDislike} disabled={!isAuthenticated}>
+            {isDisliked ? (
+              <AiFillDislike size={20} />
+            ) : (
+              <AiOutlineDislike size={20} />
+            )}
+            {totalDownVotes}
+          </button>
+        </S.ReactComment>
       </S.Info>
     </S.Container>
   );

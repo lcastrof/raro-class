@@ -32,7 +32,7 @@ export const Home = () => {
   const [loadingClassesFilter, setLoadingClassesFilter] = useState(false);
 
   const { isAuthenticated } = useAuth();
-  const { fetchFavorites } = useFavorites();
+  const { loadingFetchFavorites } = useFavorites();
 
   const loadAllClasses = useCallback(async () => {
     const { classesData, tutoringClassesData, openClassesData } =
@@ -49,15 +49,10 @@ export const Home = () => {
     setOpenClasses(classesData);
   }, []);
 
-  const loadFavorites = useCallback(async () => {
-    await fetchFavorites();
-  }, [fetchFavorites]);
-
   const loadData = useCallback(async () => {
     setLoadingClasses(true);
     try {
       if (isAuthenticated) {
-        await loadFavorites();
         await loadAllClasses();
       } else {
         await loadOpenClasses();
@@ -68,7 +63,7 @@ export const Home = () => {
     } finally {
       setLoadingClasses(false);
     }
-  }, [isAuthenticated, loadFavorites, loadAllClasses, loadOpenClasses]);
+  }, [isAuthenticated, loadAllClasses, loadOpenClasses]);
 
   // Pega todas as informações ao carregar a página
   useEffect(() => {
@@ -108,19 +103,21 @@ export const Home = () => {
     (_, i) => `Semana ${`${i + 1}`.padStart(2, '0')}`
   );
 
+  const loadingPage = loadingClasses || loadingFetchFavorites;
+
   return (
     <>
       <S.Container>
         {isAuthenticated ? (
           <>
-            <FavoritesSection isLoading={loadingClasses} />
+            <FavoritesSection isLoading={loadingPage} />
             <DivideLine />
             <ClassesSection
               classes={classes}
               title="Aulas do curso"
               topicFilterOptions={selectOptions}
               handleTopicFilter={handleTopicFilter}
-              isLoading={loadingClasses}
+              isLoading={loadingPage}
               filterLoading={loadingClassesFilter}
             />
             <DivideLine />
@@ -128,7 +125,7 @@ export const Home = () => {
               classes={tutoringClasses}
               title="Monitorias"
               type="tutoring"
-              isLoading={loadingClasses}
+              isLoading={loadingPage}
             />
             <DivideLine />
           </>
@@ -137,7 +134,7 @@ export const Home = () => {
           classes={openClasses}
           title="Nossos Aulões"
           type="openClasses"
-          isLoading={loadingClasses}
+          isLoading={loadingPage}
         />
       </S.Container>
       <Footer />

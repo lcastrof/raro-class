@@ -5,15 +5,18 @@ import { Video } from '../types/Video';
 type FavoritesHookProps = {
   favorites: Video[];
   fetchFavorites: () => Promise<void>;
+  loadingFetchFavorites: boolean;
   addFavorite: (videoData: Video) => Promise<void>;
   removeFavorite: (id: string) => Promise<void>;
 };
 
 export const useFavorites = create<FavoritesHookProps>((set) => ({
   favorites: [],
+  loadingFetchFavorites: false,
   fetchFavorites: async () => {
+    set({ loadingFetchFavorites: true });
     const { data } = await api.get('/videos/favoritos');
-    set(() => ({ favorites: data }));
+    set(() => ({ favorites: data, loadingFetchFavorites: false }));
   },
   addFavorite: async (videoData: Video) => {
     await api.post(`/videos/${videoData.id}/favoritos`);

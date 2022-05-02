@@ -56,6 +56,7 @@ export const Comment = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.black};
     font-size: ${theme.font.sizes.small};
+    font-weight: ${theme.font.weight.medium};
   `}
 `;
 
@@ -71,6 +72,10 @@ export const ReactComment = styled.div`
       gap: ${theme.spacing.xxsmall};
       color: ${theme.colors.maximumBlue};
       font-weight: ${theme.font.weight.bold};
+
+      &:disabled {
+        cursor: default;
+      }
     }
   `}
 `;

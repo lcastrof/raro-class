@@ -5,7 +5,7 @@ export const RightSide = styled.aside`
   flex-direction: column;
 `;
 export const NextVideoCard = styled.div`
-  width: 38.2rem;
+  width: 33.4rem;
   height: 8rem;
   margin-bottom: ${({ theme }) => theme.spacing.small};
   background-image: linear-gradient(

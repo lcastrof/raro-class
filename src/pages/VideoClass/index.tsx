@@ -14,6 +14,8 @@ import { Video } from '../../types/Video';
 import { useAuth } from '../../store/auth';
 import { CardCommentInput } from '../../components/CardCommentInput';
 import { toast } from 'react-toastify';
+import { useFavorites } from '../../store/favorites';
+import ScrollToTopButton from '../../components/ScrollToTopButton';
 
 type Aluno = {
   id: string;
@@ -54,10 +56,11 @@ export const LoadingVideoPage = () => (
 export const VideoClass = () => {
   const [recommendedVideos, setRecommendedVideos] = useState<Video[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loadingInfos, setLoadingInfos] = useState(false);
 
   const navigate = useNavigate();
   const { id } = useParams();
+  const { loadingFetchFavorites } = useFavorites();
   const { isAuthenticated } = useAuth();
 
   const [videoUrl, setVideoUrl] = useState();
@@ -85,7 +88,7 @@ export const VideoClass = () => {
   }, [id]);
 
   const loadData = useCallback(async () => {
-    setLoading(true);
+    setLoadingInfos(true);
     try {
       await loadVideoInfo();
       await loadRecommended();
@@ -99,13 +102,15 @@ export const VideoClass = () => {
         navigate('/');
       }
     } finally {
-      setLoading(false);
+      setLoadingInfos(false);
     }
   }, [loadComments, loadRecommended, loadVideoInfo, navigate]);
 
   useEffect(() => {
     loadData();
   }, [loadData]);
+
+  const loading = loadingInfos || loadingFetchFavorites;
 
   if (loading || !videoApi) {
     return <LoadingVideoPage />;
@@ -144,11 +149,16 @@ export const VideoClass = () => {
             }
           />
           <S.WrapInfo>
-            {videoApi && isAuthenticated ? (
+            {isAuthenticated ? (
               <S.Star>
                 <FavoriteButton video={videoApi} defaultColor="primary" />
               </S.Star>
-            ) : null}
+            ) : (
+              <S.PlayIcon
+                src="/assets/icon/icon-playTitle.svg"
+                alt="Play icon"
+              />
+            )}
             <S.WrapTitleDescription>
               <h1>{videoApi?.nome}</h1>
               <h2>{videoApi?.descricao}</h2>
@@ -170,6 +180,7 @@ export const VideoClass = () => {
         </S.TitleRecommended>
         <VideoRecomendedList videoRecomended={recommendedVideos} />
       </S.ContainerRight>
+      <ScrollToTopButton />
     </S.Container>
   );
 };
