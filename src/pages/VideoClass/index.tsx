@@ -68,7 +68,7 @@ export const VideoClass = () => {
   const [videoApi, setVideoApi] = useState<Video>();
 
   const handleComment = (comment: Comment) => {
-    setComments([...comments, comment]);
+    setComments([comment, ...comments]);
   };
 
   const loadVideoInfo = useCallback(async () => {
@@ -80,7 +80,7 @@ export const VideoClass = () => {
 
   const loadComments = useCallback(async () => {
     const responseComments = await api.get(`/videos/${id}/comentarios`);
-    setComments(responseComments.data);
+    setComments(responseComments.data.reverse());
   }, [id]);
   const loadRecommended = useCallback(async () => {
     const responseRecommended = await api.get(`/videos/${id}/recomendacoes`);
