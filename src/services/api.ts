@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 
 const api = axios.create();
 
-api.defaults.baseURL = 'http://3.221.159.196:3322/';
+api.defaults.baseURL = 'https://3.221.159.196:3320/';
 
 api.interceptors.request.use(
   async (config: AxiosRequestConfig) => {
